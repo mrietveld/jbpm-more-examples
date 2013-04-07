@@ -1,6 +1,20 @@
-*.class
+bin/
+target/
+local/
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# - Eclipse : .project, .settings/, .classpath
+.project
+.settings/
+.classpath
+# - Netbeans: 
+nbproject
+*.ipr
+# - Intellij
+*.iws
+*.iml
+
+# test data
+*.tlog
+*.log
+*.db
+data/
