@@ -1,8 +1,7 @@
-package org.jbpm;
+package org.jbpm.more.examples;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -10,13 +9,9 @@ import javax.transaction.Status;
 import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 
-import junit.framework.Assert;
-
-import org.drools.ClockType;
 import org.drools.KnowledgeBase;
 import org.drools.KnowledgeBaseFactory;
 import org.drools.SystemEventListenerFactory;
-import org.drools.audit.WorkingMemoryInMemoryLogger;
 import org.drools.builder.KnowledgeBuilder;
 import org.drools.builder.KnowledgeBuilderError;
 import org.drools.builder.KnowledgeBuilderFactory;
@@ -29,7 +24,6 @@ import org.drools.runtime.Environment;
 import org.drools.runtime.EnvironmentName;
 import org.drools.runtime.KnowledgeSessionConfiguration;
 import org.drools.runtime.StatefulKnowledgeSession;
-import org.drools.runtime.conf.ClockTypeOption;
 import org.drools.runtime.process.NodeInstance;
 import org.drools.runtime.process.NodeInstanceContainer;
 import org.drools.runtime.process.ProcessInstance;
@@ -43,6 +37,7 @@ import org.jbpm.task.TaskService;
 import org.jbpm.task.service.local.LocalTaskService;
 import org.jbpm.workflow.instance.impl.WorkflowProcessInstanceImpl;
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;

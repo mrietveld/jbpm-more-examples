@@ -89,7 +89,7 @@
       <sequenceFlow id="_2-4-_2-5" sourceRef="_2-4" targetRef="_2-5" />
 
       <scriptTask id="_2-5" name="continue">
-        <script>System.out.println("This is only printed if we use escalations (and not errors)");</script>
+        <script>System.out.println("[ONLY printed if we use *escalations* (and not errors)]");</script>
       </scriptTask>
       <sequenceFlow id="_2-5-_2-11" sourceRef="_2-5" targetRef="_2-11" />
 

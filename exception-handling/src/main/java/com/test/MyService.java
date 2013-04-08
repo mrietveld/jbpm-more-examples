@@ -2,34 +2,29 @@ package com.test;
 
 import java.util.Map;
 
-public class MyService extends TaskExecutor {
+public class MyService {
 
-    public Map<String, Object> execute(Object object) { 
-        String type = "null";
-        if( object != null ) { 
-            type = object.getClass().getCanonicalName();
-        }
-        System.out.println("Input is " + type );
-        throw new RuntimeException("Exception thrown!");
-    }
+    public static final String MY_SERVICE_VAR = "com.test.MyService.input";
     
-    public boolean execute(Map<String, Object> input) { 
-        System.out.println("My Service is being executed.");
-        return false;
-    }
-    
-	public Map<String, Object> runTask(Map<String, Object> input) throws Exception{
-		int i=2;
-		int j=2;
-		
-		int total = i + j;
-		if( total == 5 ) {  // parallel realities... ;) 
-		    input.put("total", total );
-		} else { 
-		    throw new RuntimeException("2 + 2 should equal 5!");
+	public boolean execute(Map<String, Object> inputMap) {
+	    boolean success = false;
+	
+	    try { 
+	        String [] input = (String []) inputMap.get(MY_SERVICE_VAR);
+	    
+	        int [] output = new int[input.length];
+	        for( int i = 0; i < input.length; ++i ) { 
+	            output[i] = Integer.parseInt(input[i]);
+	        }
+	        inputMap.put(MY_SERVICE_VAR, output);
+	       
+	        success = true;
+	    } catch(Throwable t) { 
+	        String reason = "MyService.execute failed with exception: " + t.getClass().getSimpleName() + " [" + t.getMessage() + "]";
+	        inputMap.put(HandleExceptionServiceTaskHandler.FAILURE_REASON, reason); 
 		}
 		
-		return input;
+		return success;
 	}
 	
 

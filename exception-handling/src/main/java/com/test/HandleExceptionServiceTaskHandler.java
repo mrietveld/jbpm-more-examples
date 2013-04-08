@@ -18,11 +18,13 @@ import org.slf4j.LoggerFactory;
  */
 public class HandleExceptionServiceTaskHandler implements WorkItemHandler {
 
-    public static String FAILURE_SERVICE = "com.test.failure.service";
-    public static String FAILURE_OPERATION = "com.test.failure.operation";
-    public static String FAILURE_PARAMETER_TYPE = "com.test.failure.parameter.type";
-    public static String FAILURE_REASON = "com.test.failure.reason";
-    public static String FAILURE_TRACE = "com.test.failure.trace";
+    public static final String FAILURE_SERVICE = "com.test.failure.service";
+    public static final String FAILURE_OPERATION = "com.test.failure.operation";
+    public static final String FAILURE_PARAMETER_TYPE = "com.test.failure.parameter.type";
+    
+    public static final String FAILURE_EXCEPTION = "com.test.failure.exception";
+    public static final String FAILURE_REASON = "com.test.failure.reason";
+    public static final String FAILURE_TRACE = "com.test.failure.trace";
 
     private static Logger logger = LoggerFactory.getLogger(HandleExceptionServiceTaskHandler.class);
 
