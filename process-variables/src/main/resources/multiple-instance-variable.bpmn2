@@ -1,0 +1,1344 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_DealRequestTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_DealRequestIdItem" structureRef="Integer" />
+  <itemDefinition id="_PackagerIdItem" structureRef="Integer" />
+  <itemDefinition id="_ScriptTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_BusinessUnitIdItem" structureRef="Integer" />
+  <itemDefinition id="_ExecutionPathItem" structureRef="String" />
+  <itemDefinition id="_TaskInfoItem" structureRef="ArrayList" />
+  <itemDefinition id="_ExitCheckItem" structureRef="Boolean" />
+  <itemDefinition id="_TaskIteratorItem" structureRef="Integer" />
+  <itemDefinition id="_IndependentTaskListItem" structureRef="ArrayList" />
+  <itemDefinition id="_RepeatNetworkIdItem" structureRef="Integer" />
+  <itemDefinition id="_IteratorItem" structureRef="Integer" />
+  <itemDefinition id="_IndependentTaskItem" structureRef="com.ge.nbc.deal.pdm.bus.domain.IndependentTask" />
+  <itemDefinition id="_PathActivityItem" structureRef="String" />
+
+  <itemDefinition id="_4-2-1-1-2-3-taskAssignmentInfoItem" />
+
+  <itemDefinition id="_12-2-1-taskAssignmentInfoItem" />
+
+  <itemDefinition id="_23-2-2-taskAssignmentInfoItem" />
+
+  <itemDefinition id="_27-DealRequestTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_27-DealRequestIdItem" structureRef="Integer" />
+  <itemDefinition id="_27-PackagerIdItem" structureRef="Integer" />
+  <itemDefinition id="_27-ScriptTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_27-BusinessUnitIdItem" structureRef="Integer" />
+  <itemDefinition id="_27-ExecutionPathItem" structureRef="String" />
+  <itemDefinition id="_27-TaskInfoItem" structureRef="ArrayList" />
+  <itemDefinition id="_27-ExitCheckItem" structureRef="Boolean" />
+  <itemDefinition id="_27-TaskIteratorItem" structureRef="Integer" />
+  <itemDefinition id="_27-IndependentTaskListItem" structureRef="ArrayList" />
+  <itemDefinition id="_27-RepeatNetworkIdItem" structureRef="Integer" />
+  <itemDefinition id="_27-IteratorItem" structureRef="Integer" />
+  <itemDefinition id="_27-IndependentTaskItem" structureRef="com.ge.nbc.deal.pdm.bus.domain.IndependentTask" />
+  <itemDefinition id="_27-PathActivityItem" structureRef="String" />
+
+  <itemDefinition id="_29-DealRequestTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_29-DealRequestIdItem" structureRef="Integer" />
+  <itemDefinition id="_29-PackagerIdItem" structureRef="Integer" />
+  <itemDefinition id="_29-ScriptTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_29-BusinessUnitIdItem" structureRef="Integer" />
+  <itemDefinition id="_29-ExecutionPathItem" structureRef="String" />
+  <itemDefinition id="_29-TaskInfoItem" structureRef="ArrayList" />
+  <itemDefinition id="_29-ExitCheckItem" structureRef="Boolean" />
+  <itemDefinition id="_29-TaskIteratorItem" structureRef="Integer" />
+  <itemDefinition id="_29-IndependentTaskListItem" structureRef="ArrayList" />
+  <itemDefinition id="_29-RepeatNetworkIdItem" structureRef="Integer" />
+  <itemDefinition id="_29-IteratorItem" structureRef="Integer" />
+  <itemDefinition id="_29-IndependentTaskItem" structureRef="com.ge.nbc.deal.pdm.bus.domain.IndependentTask" />
+  <itemDefinition id="_29-PathActivityItem" structureRef="String" />
+
+  <itemDefinition id="_28-DealRequestTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_28-DealRequestIdItem" structureRef="Integer" />
+  <itemDefinition id="_28-PackagerIdItem" structureRef="Integer" />
+  <itemDefinition id="_28-ScriptTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_28-BusinessUnitIdItem" structureRef="Integer" />
+  <itemDefinition id="_28-ExecutionPathItem" structureRef="String" />
+  <itemDefinition id="_28-TaskInfoItem" structureRef="ArrayList" />
+  <itemDefinition id="_28-ExitCheckItem" structureRef="Boolean" />
+  <itemDefinition id="_28-TaskIteratorItem" structureRef="Integer" />
+  <itemDefinition id="_28-IndependentTaskListItem" structureRef="ArrayList" />
+  <itemDefinition id="_28-RepeatNetworkIdItem" structureRef="Integer" />
+  <itemDefinition id="_28-IteratorItem" structureRef="Integer" />
+  <itemDefinition id="_28-IndependentTaskItem" structureRef="com.ge.nbc.deal.pdm.bus.domain.IndependentTask" />
+  <itemDefinition id="_28-PathActivityItem" structureRef="String" />
+
+  <itemDefinition id="_31-DealRequestTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_31-DealRequestIdItem" structureRef="Integer" />
+  <itemDefinition id="_31-PackagerIdItem" structureRef="Integer" />
+  <itemDefinition id="_31-ScriptTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_31-BusinessUnitIdItem" structureRef="Integer" />
+  <itemDefinition id="_31-ExecutionPathItem" structureRef="String" />
+  <itemDefinition id="_31-TaskInfoItem" structureRef="ArrayList" />
+  <itemDefinition id="_31-ExitCheckItem" structureRef="Boolean" />
+  <itemDefinition id="_31-TaskIteratorItem" structureRef="Integer" />
+  <itemDefinition id="_31-IndependentTaskListItem" structureRef="ArrayList" />
+  <itemDefinition id="_31-RepeatNetworkIdItem" structureRef="Integer" />
+  <itemDefinition id="_31-IteratorItem" structureRef="Integer" />
+  <itemDefinition id="_31-IndependentTaskItem" structureRef="com.ge.nbc.deal.pdm.bus.domain.IndependentTask" />
+  <itemDefinition id="_31-PathActivityItem" structureRef="String" />
+
+  <itemDefinition id="_30-DealRequestTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_30-DealRequestIdItem" structureRef="Integer" />
+  <itemDefinition id="_30-PackagerIdItem" structureRef="Integer" />
+  <itemDefinition id="_30-ScriptTypeIdItem" structureRef="Integer" />
+  <itemDefinition id="_30-BusinessUnitIdItem" structureRef="Integer" />
+  <itemDefinition id="_30-ExecutionPathItem" structureRef="String" />
+  <itemDefinition id="_30-TaskInfoItem" structureRef="ArrayList" />
+  <itemDefinition id="_30-ExitCheckItem" structureRef="Boolean" />
+  <itemDefinition id="_30-TaskIteratorItem" structureRef="Integer" />
+  <itemDefinition id="_30-IndependentTaskListItem" structureRef="ArrayList" />
+  <itemDefinition id="_30-RepeatNetworkIdItem" structureRef="Integer" />
+  <itemDefinition id="_30-IteratorItem" structureRef="Integer" />
+  <itemDefinition id="_30-IndependentTaskItem" structureRef="com.ge.nbc.deal.pdm.bus.domain.IndependentTask" />
+  <itemDefinition id="_30-PathActivityItem" structureRef="String" />
+
+  <itemDefinition id="_4_multiInstanceItemType" />
+
+  <itemDefinition id="_4-2-1-1_multiInstanceItemType" />
+
+  <itemDefinition id="_12_multiInstanceItemType" />
+
+  <itemDefinition id="_23_multiInstanceItemType" />
+
+  <process processType="Private" isExecutable="true" id="CPR" name="CPR" >
+
+    <extensionElements>
+     <tns:import name="java.util.List" />
+     <tns:import name="java.util.ArrayList" />
+     <tns:import name="com.ge.nbc.pdm.deal.bus.share.util.PDMProperties" />
+     <tns:import name="com.ge.nbc.pdm.deal.bus.domain.IndependentTask" />
+    </extensionElements>
+    <!-- process variables -->
+    <property id="DealRequestTypeId" itemSubjectRef="_DealRequestTypeIdItem"/>
+    <property id="DealRequestId" itemSubjectRef="_DealRequestIdItem"/>
+    <property id="PackagerId" itemSubjectRef="_PackagerIdItem"/>
+    <property id="ScriptTypeId" itemSubjectRef="_ScriptTypeIdItem"/>
+    <property id="BusinessUnitId" itemSubjectRef="_BusinessUnitIdItem"/>
+    <property id="ExecutionPath" itemSubjectRef="_ExecutionPathItem"/>
+    <property id="TaskInfo" itemSubjectRef="_TaskInfoItem"/>
+    <property id="ExitCheck" itemSubjectRef="_ExitCheckItem"/>
+    <property id="TaskIterator" itemSubjectRef="_TaskIteratorItem"/>
+    <property id="IndependentTaskList" itemSubjectRef="_IndependentTaskListItem"/>
+    <property id="RepeatNetworkId" itemSubjectRef="_RepeatNetworkIdItem"/>
+    <property id="Iterator" itemSubjectRef="_IteratorItem"/>
+    <property id="IndependentTask" itemSubjectRef="_IndependentTaskItem"/>
+    <property id="PathActivity" itemSubjectRef="_PathActivityItem"/>
+
+    <!-- nodes -->
+    <startEvent id="_1" name="Start" />
+    <scriptTask id="_32" name="Exit Path &amp; Set Path" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Parallel path 2 tasks are completed..");
+/*This node is used to indicate the engine that the path being set here is Parallel path 2.
+It may look like the path number is being hard coded here. Since this path is a constant one and even
+after ages this path is going to remain as same and the following code helps engine identify the path number */
+kcontext.setVariable(PDMProperties.EXECUTION_PATH_STRING,PDMProperties.CPR_SEQUENTIAL_PATH);</script>
+    </scriptTask>
+    <scriptTask id="_33" name="Set Path" scriptFormat="http://www.java.com/java" >
+      <script>/*This node is used to indicate the engine that the path being set here is Parallel path 1.
+It may look like the path number is being hard coded here. Since this path is a constant one and even
+after ages this path is going to remain as same and the following code helps engine identify the path number */
+kcontext.setVariable(PDMProperties.EXECUTION_PATH_STRING,PDMProperties.CPR_PARALLEL_DEPENDENT_PATH1);
+kcontext.setVariable(PDMProperties.PATH_ACTIVITY_STRING,PDMProperties.CPR_PARALLEL_DEPENDENT_PATH1_ACTIVITY);
+System.out.println("execution path 1....");</script>
+    </scriptTask>
+    <subProcess id="_4" name="Multiple Instances"  >
+      <ioSpecification>
+        <dataInput id="_4_input" name="MultiInstanceInput" />
+        <inputSet/>
+        <outputSet/>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>IndependentTaskList</sourceRef>
+        <targetRef>_4_input</targetRef>
+      </dataInputAssociation>
+      <multiInstanceLoopCharacteristics>
+        <loopDataInputRef>_4_input</loopDataInputRef>
+        <inputDataItem id="independentTaskList" itemSubjectRef="_4_multiInstanceItemType"/>
+      </multiInstanceLoopCharacteristics>
+    <!-- nodes -->
+    <subProcess id="_4-2-1" name="Sub-Process"  >
+    <!-- nodes -->
+    <subProcess id="_4-2-1-1" name="Multiple Instances"  >
+      <ioSpecification>
+        <dataInput id="_4-2-1-1_input" name="MultiInstanceInput" />
+        <inputSet/>
+        <outputSet/>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>TaskInfo</sourceRef>
+        <targetRef>_4-2-1-1_input</targetRef>
+      </dataInputAssociation>
+      <multiInstanceLoopCharacteristics>
+        <loopDataInputRef>_4-2-1-1_input</loopDataInputRef>
+        <inputDataItem id="taskAssignmentInfo" itemSubjectRef="_4-2-1-1_multiInstanceItemType"/>
+      </multiInstanceLoopCharacteristics>
+    <!-- nodes -->
+    <startEvent id="_4-2-1-1-2-1" name="Start" />
+    <endEvent id="_4-2-1-1-2-2" name="End" />
+    <userTask id="_4-2-1-1-2-3" name="Approve Task(s)" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("inside the user task node..");</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("exiting the user task node..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_4-2-1-1-2-3_CommentInput" name="Comment" />
+        <dataInput id="_4-2-1-1-2-3_SkippableInput" name="Skippable" />
+        <dataInput id="_4-2-1-1-2-3_TaskNameInput" name="TaskName" />
+        <dataInput id="_4-2-1-1-2-3_ContentInput" name="Content" />
+        <inputSet>
+          <dataInputRefs>_4-2-1-1-2-3_CommentInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-1-2-3_SkippableInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-1-2-3_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-1-2-3_ContentInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_4-2-1-1-2-3_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Hi..! #{taskAssignmentInfo.getActorName()}..! Please approve the task..!</from>
+          <to xsi:type="tFormalExpression">_4-2-1-1-2-3_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_4-2-1-1-2-3_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_4-2-1-1-2-3_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_4-2-1-1-2-3_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{taskAssignmentInfo.getTaskName()}</from>
+          <to xsi:type="tFormalExpression">_4-2-1-1-2-3_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_4-2-1-1-2-3_ContentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Hi..! #{taskAssignmentInfo.getActorName()}..! Please approve the task..!</from>
+          <to xsi:type="tFormalExpression">_4-2-1-1-2-3_ContentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{taskAssignmentInfo.getActorName()}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <!-- connections -->
+    <sequenceFlow id="_4-2-1-1-2-3-_4-2-1-1-2-2" sourceRef="_4-2-1-1-2-3" targetRef="_4-2-1-1-2-2" />
+    <sequenceFlow id="_4-2-1-1-2-1-_4-2-1-1-2-3" sourceRef="_4-2-1-1-2-1" targetRef="_4-2-1-1-2-3" />
+    </subProcess>
+    <startEvent id="_4-2-1-2" name="Start" />
+    <endEvent id="_4-2-1-3" name="End" />
+    <exclusiveGateway id="_4-2-1-6" name="Gateway" gatewayDirection="Converging" />
+    <exclusiveGateway id="_4-2-1-7" name="Gateway" gatewayDirection="Diverging" />
+    <scriptTask id="_4-2-1-8" name="Loop Back" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("looping back originating repeat network path..");</script>
+    </scriptTask>
+    <scriptTask id="_4-2-1-9" name="Set Path &amp; Choose Activity" scriptFormat="http://www.java.com/java" >
+      <script>/*This node is used to indicate the engine that the path being set here is Parallel path 2.
+It may look like the path number is being hard coded here. Since this path is a constant one and even
+after ages this path is going to remain as same and the following code helps engine identify the path number */
+kcontext.setVariable(PDMProperties.EXECUTION_PATH_STRING,PDMProperties.CPR_PARALLEL_INDEPENDENT_PATH2);
+System.out.println("execution path 2....independent task triggers..");
+List inList = (List&lt;IndependentTask&gt;) kcontext.getVariable(PDMProperties.INDEPENDENT_TASK_LIST_STRING);
+System.out.println("inlist is...." + inList);
+int iterator = (Integer)kcontext.getVariable(PDMProperties.TASK_ITERATOR_STRING);
+IndependentTask task = (IndependentTask)inList.get(iterator);
+kcontext.setVariable(PDMProperties.INDEPENDENT_TASK_STRING,task);
+iterator++;
+kcontext.setVariable(PDMProperties.TASK_ITERATOR_STRING,iterator);</script>
+    </scriptTask>
+    <task id="_4-2-1-10" name="Evaluate Process Flow" tns:taskName="Task Evaluation" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Evaluating the originating repeat path..");
+String executionPath = (String)kcontext.getVariable(PDMProperties.EXECUTION_PATH_STRING);
+executionPath = PDMProperties.CPR_PARALLEL_INDEPENDENT_PATH2;
+kcontext.setVariable(PDMProperties.EXECUTION_PATH_STRING,executionPath);</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Evaluating out of originating repeat path..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_4-2-1-10_DealRequestTypeIdInput" name="DealRequestTypeId" />
+        <dataInput id="_4-2-1-10_BusinessUnitIdInput" name="BusinessUnitId" />
+        <dataInput id="_4-2-1-10_DealRequestIdInput" name="DealRequestId" />
+        <dataInput id="_4-2-1-10_ExitCheckInput" name="ExitCheck" />
+        <dataInput id="_4-2-1-10_PackagerIdInput" name="PackagerId" />
+        <dataInput id="_4-2-1-10_RepeatNetworkIdInput" name="RepeatNetworkId" />
+        <dataInput id="_4-2-1-10_TaskInfoInput" name="TaskInfo" />
+        <dataInput id="_4-2-1-10_ScriptTypeIdInput" name="ScriptTypeId" />
+        <dataInput id="_4-2-1-10_ExecutionPathInput" name="ExecutionPath" />
+        <dataInput id="_4-2-1-10_ClassInput" name="Class" />
+        <dataOutput id="_4-2-1-10_ExitCheckOutput" name="ExitCheck" />
+        <dataOutput id="_4-2-1-10_TaskInfoOutput" name="TaskInfo" />
+        <inputSet>
+          <dataInputRefs>_4-2-1-10_DealRequestTypeIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_BusinessUnitIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_DealRequestIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_ExitCheckInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_PackagerIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_RepeatNetworkIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_TaskInfoInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_ScriptTypeIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_ExecutionPathInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-10_ClassInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_4-2-1-10_ExitCheckOutput</dataOutputRefs>
+          <dataOutputRefs>_4-2-1-10_TaskInfoOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>DealRequestTypeId</sourceRef>
+        <targetRef>_4-2-1-10_DealRequestTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>BusinessUnitId</sourceRef>
+        <targetRef>_4-2-1-10_BusinessUnitIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>DealRequestId</sourceRef>
+        <targetRef>_4-2-1-10_DealRequestIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExitCheck</sourceRef>
+        <targetRef>_4-2-1-10_ExitCheckInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>PackagerId</sourceRef>
+        <targetRef>_4-2-1-10_PackagerIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>RepeatNetworkId</sourceRef>
+        <targetRef>_4-2-1-10_RepeatNetworkIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>TaskInfo</sourceRef>
+        <targetRef>_4-2-1-10_TaskInfoInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ScriptTypeId</sourceRef>
+        <targetRef>_4-2-1-10_ScriptTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExecutionPath</sourceRef>
+        <targetRef>_4-2-1-10_ExecutionPathInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_4-2-1-10_ClassInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">com.ge.nbc.pdm.deal.bus.share.workflow.handler.TaskEvaluationWorkItemHandler</from>
+          <to xsi:type="tFormalExpression">_4-2-1-10_ClassInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_4-2-1-10_ExitCheckOutput</sourceRef>
+        <targetRef>ExitCheck</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_4-2-1-10_TaskInfoOutput</sourceRef>
+        <targetRef>TaskInfo</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <task id="_4-2-1-11" name="Identify Initial Approvers" tns:taskName="Task Identification" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Entering the task identification WI Handler of Origin &amp; Repeat network..");</script>
+        </tns:onEntry-script>
+        <tns:onExit-script>
+          <script>System.out.println("Exiting the task identification WI Handler of Origin &amp; Repeat network..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_4-2-1-11_DealRequestTypeIdInput" name="DealRequestTypeId" />
+        <dataInput id="_4-2-1-11_IndependentTaskInput" name="IndependentTask" />
+        <dataInput id="_4-2-1-11_BusinessUnitIdInput" name="BusinessUnitId" />
+        <dataInput id="_4-2-1-11_PackagerIdInput" name="PackagerId" />
+        <dataInput id="_4-2-1-11_ExecutionPathInput" name="ExecutionPath" />
+        <dataInput id="_4-2-1-11_ScriptTypeIdInput" name="ScriptTypeId" />
+        <dataInput id="_4-2-1-11_ClassInput" name="Class" />
+        <dataOutput id="_4-2-1-11_TaskInfoOutput" name="TaskInfo" />
+        <inputSet>
+          <dataInputRefs>_4-2-1-11_DealRequestTypeIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-11_IndependentTaskInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-11_BusinessUnitIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-11_PackagerIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-11_ExecutionPathInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-11_ScriptTypeIdInput</dataInputRefs>
+          <dataInputRefs>_4-2-1-11_ClassInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_4-2-1-11_TaskInfoOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>DealRequestTypeId</sourceRef>
+        <targetRef>_4-2-1-11_DealRequestTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>IndependentTask</sourceRef>
+        <targetRef>_4-2-1-11_IndependentTaskInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>BusinessUnitId</sourceRef>
+        <targetRef>_4-2-1-11_BusinessUnitIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>PackagerId</sourceRef>
+        <targetRef>_4-2-1-11_PackagerIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExecutionPath</sourceRef>
+        <targetRef>_4-2-1-11_ExecutionPathInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ScriptTypeId</sourceRef>
+        <targetRef>_4-2-1-11_ScriptTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_4-2-1-11_ClassInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">com.ge.nbc.pdm.deal.bus.share.workflow.handler.TaskIdentifcationWorkItemHandler</from>
+          <to xsi:type="tFormalExpression">_4-2-1-11_ClassInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_4-2-1-11_TaskInfoOutput</sourceRef>
+        <targetRef>TaskInfo</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <!-- connections -->
+    <sequenceFlow id="_4-2-1-6-_4-2-1-1" sourceRef="_4-2-1-6" targetRef="_4-2-1-1" />
+    <sequenceFlow id="_4-2-1-7-_4-2-1-3" sourceRef="_4-2-1-7" targetRef="_4-2-1-3" name="exit" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return true;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_4-2-1-8-_4-2-1-6" sourceRef="_4-2-1-8" targetRef="_4-2-1-6" />
+    <sequenceFlow id="_4-2-1-11-_4-2-1-6" sourceRef="_4-2-1-11" targetRef="_4-2-1-6" />
+    <sequenceFlow id="_4-2-1-10-_4-2-1-7" sourceRef="_4-2-1-10" targetRef="_4-2-1-7" />
+    <sequenceFlow id="_4-2-1-7-_4-2-1-8" sourceRef="_4-2-1-7" targetRef="_4-2-1-8" name="feedback" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >Boolean feedBack = Boolean.valueOf(true);
+System.out.println("ExitChecker.." + kcontext.getVariable(PDMProperties.EXIT_CHECK_STRING));
+feedBack = (Boolean) kcontext.getVariable(PDMProperties.EXIT_CHECK_STRING);
+if(!feedBack.booleanValue())
+{
+		return false;
+}
+else
+{
+		return true;
+}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_4-2-1-2-_4-2-1-9" sourceRef="_4-2-1-2" targetRef="_4-2-1-9" />
+    <sequenceFlow id="_4-2-1-1-_4-2-1-10" sourceRef="_4-2-1-1" targetRef="_4-2-1-10" />
+    <sequenceFlow id="_4-2-1-9-_4-2-1-11" sourceRef="_4-2-1-9" targetRef="_4-2-1-11" />
+    </subProcess>
+    <startEvent id="_4-2-2" name="Start" />
+    <endEvent id="_4-2-3" name="End" />
+    <!-- connections -->
+    <sequenceFlow id="_4-2-2-_4-2-1" sourceRef="_4-2-2" targetRef="_4-2-1" />
+    <sequenceFlow id="_4-2-1-_4-2-3" sourceRef="_4-2-1" targetRef="_4-2-3" />
+    </subProcess>
+    <endEvent id="_8" name="End" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <parallelGateway id="_10" name="Gateway" gatewayDirection="Converging" />
+    <subProcess id="_12" name="Multiple Instances"  >
+      <ioSpecification>
+        <dataInput id="_12_input" name="MultiInstanceInput" />
+        <inputSet/>
+        <outputSet/>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>TaskInfo</sourceRef>
+        <targetRef>_12_input</targetRef>
+      </dataInputAssociation>
+      <multiInstanceLoopCharacteristics>
+        <loopDataInputRef>_12_input</loopDataInputRef>
+        <inputDataItem id="taskAssignmentInfo" itemSubjectRef="_12_multiInstanceItemType"/>
+      </multiInstanceLoopCharacteristics>
+    <!-- nodes -->
+    <userTask id="_12-2-1" name="Approve Task(s)" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Entering User task for Parallel Path 1");</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Exiting User task for Parallel Path 1");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_12-2-1_CommentInput" name="Comment" />
+        <dataInput id="_12-2-1_SkippableInput" name="Skippable" />
+        <dataInput id="_12-2-1_TaskNameInput" name="TaskName" />
+        <dataInput id="_12-2-1_ContentInput" name="Content" />
+        <inputSet>
+          <dataInputRefs>_12-2-1_CommentInput</dataInputRefs>
+          <dataInputRefs>_12-2-1_SkippableInput</dataInputRefs>
+          <dataInputRefs>_12-2-1_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_12-2-1_ContentInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_12-2-1_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Hi..! #{taskAssignmentInfo.getActorName()}..! Please approve the task..!</from>
+          <to xsi:type="tFormalExpression">_12-2-1_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_12-2-1_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_12-2-1_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_12-2-1_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{taskAssignmentInfo.getTaskName()}</from>
+          <to xsi:type="tFormalExpression">_12-2-1_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_12-2-1_ContentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Hi..! #{taskAssignmentInfo.getActorName()}..! Please approve the task..!</from>
+          <to xsi:type="tFormalExpression">_12-2-1_ContentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{taskAssignmentInfo.getActorName()}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <startEvent id="_12-2-2" name="Start" />
+    <endEvent id="_12-2-3" name="End" />
+    <!-- connections -->
+    <sequenceFlow id="_12-2-2-_12-2-1" sourceRef="_12-2-2" targetRef="_12-2-1" />
+    <sequenceFlow id="_12-2-1-_12-2-3" sourceRef="_12-2-1" targetRef="_12-2-3" />
+    </subProcess>
+    <scriptTask id="_14" name="Trace Activity" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Path 1 is currently designated to serve Cross Network Strategy..");
+System.out.println("Path 1 is capable to take up any new activities in the future either parallel/sequential or both..");
+System.out.println("Task Info object is... " +kcontext.getVariable(PDMProperties.TASK_INFO_STRING));
+</script>
+    </scriptTask>
+    <parallelGateway id="_15" name="Gateway" gatewayDirection="Diverging" />
+    <scriptTask id="_17" name="Loop Back" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("Looping back parallel path 1..!");</script>
+    </scriptTask>
+    <exclusiveGateway id="_19" name="Gateway" gatewayDirection="Converging" />
+    <exclusiveGateway id="_18" name="Gateway" gatewayDirection="Diverging" />
+    <scriptTask id="_20" name="Exit Path" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println(" parallel path1 tasks are completed ");</script>
+    </scriptTask>
+    <subProcess id="_23" name="Multiple Instances"  >
+      <ioSpecification>
+        <dataInput id="_23_input" name="MultiInstanceInput" />
+        <inputSet/>
+        <outputSet/>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>TaskInfo</sourceRef>
+        <targetRef>_23_input</targetRef>
+      </dataInputAssociation>
+      <multiInstanceLoopCharacteristics>
+        <loopDataInputRef>_23_input</loopDataInputRef>
+        <inputDataItem id="taskAssignmentInfo" itemSubjectRef="_23_multiInstanceItemType"/>
+      </multiInstanceLoopCharacteristics>
+    <!-- nodes -->
+    <startEvent id="_23-2-1" name="Start" />
+    <userTask id="_23-2-2" name="Approve Task(s)" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("");</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println(" BA user Task Completed");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_23-2-2_CommentInput" name="Comment" />
+        <dataInput id="_23-2-2_SkippableInput" name="Skippable" />
+        <dataInput id="_23-2-2_TaskNameInput" name="TaskName" />
+        <dataInput id="_23-2-2_ContentInput" name="Content" />
+        <inputSet>
+          <dataInputRefs>_23-2-2_CommentInput</dataInputRefs>
+          <dataInputRefs>_23-2-2_SkippableInput</dataInputRefs>
+          <dataInputRefs>_23-2-2_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_23-2-2_ContentInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_23-2-2_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Hi..! #{taskAssignmentInfo.getActorName()}..! Please approve the task..!</from>
+          <to xsi:type="tFormalExpression">_23-2-2_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_23-2-2_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_23-2-2_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_23-2-2_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{taskAssignmentInfo.getTaskName()}</from>
+          <to xsi:type="tFormalExpression">_23-2-2_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_23-2-2_ContentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">Hi..! #{taskAssignmentInfo.getActorName()}..! Please approve the task..!</from>
+          <to xsi:type="tFormalExpression">_23-2-2_ContentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{taskAssignmentInfo.getActorName()}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <endEvent id="_23-2-3" name="End" />
+    <!-- connections -->
+    <sequenceFlow id="_23-2-1-_23-2-2" sourceRef="_23-2-1" targetRef="_23-2-2" />
+    <sequenceFlow id="_23-2-2-_23-2-3" sourceRef="_23-2-2" targetRef="_23-2-3" />
+    </subProcess>
+    <exclusiveGateway id="_22" name="Gateway" gatewayDirection="Converging" />
+    <scriptTask id="_25" name="Loop Back" scriptFormat="http://www.java.com/java" >
+      <script>System.out.println("feedback at BA..");</script>
+    </scriptTask>
+    <task id="_27" name="Evaluate Process Flow" tns:taskName="Task Evaluation" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Evaluating the  Parallel Path 1..");
+String executionPath = (String)kcontext.getVariable(PDMProperties.EXECUTION_PATH_STRING);
+executionPath = PDMProperties.CPR_PARALLEL_DEPENDENT_PATH1;
+kcontext.setVariable(PDMProperties.EXECUTION_PATH_STRING,executionPath);</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Exiting out of Parallel Path 1 evaluator..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_27_DealRequestTypeIdInput" name="DealRequestTypeId" />
+        <dataInput id="_27_BusinessUnitIdInput" name="BusinessUnitId" />
+        <dataInput id="_27_DealRequestIdInput" name="DealRequestId" />
+        <dataInput id="_27_ExitCheckInput" name="ExitCheck" />
+        <dataInput id="_27_PackagerIdInput" name="PackagerId" />
+        <dataInput id="_27_TaskInfoInput" name="TaskInfo" />
+        <dataInput id="_27_ScriptTypeIdInput" name="ScriptTypeId" />
+        <dataInput id="_27_ExecutionPathInput" name="ExecutionPath" />
+        <dataInput id="_27_ClassInput" name="Class" />
+        <dataOutput id="_27_ExitCheckOutput" name="ExitCheck" />
+        <dataOutput id="_27_TaskInfoOutput" name="TaskInfo" />
+        <inputSet>
+          <dataInputRefs>_27_DealRequestTypeIdInput</dataInputRefs>
+          <dataInputRefs>_27_BusinessUnitIdInput</dataInputRefs>
+          <dataInputRefs>_27_DealRequestIdInput</dataInputRefs>
+          <dataInputRefs>_27_ExitCheckInput</dataInputRefs>
+          <dataInputRefs>_27_PackagerIdInput</dataInputRefs>
+          <dataInputRefs>_27_TaskInfoInput</dataInputRefs>
+          <dataInputRefs>_27_ScriptTypeIdInput</dataInputRefs>
+          <dataInputRefs>_27_ExecutionPathInput</dataInputRefs>
+          <dataInputRefs>_27_ClassInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_27_ExitCheckOutput</dataOutputRefs>
+          <dataOutputRefs>_27_TaskInfoOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>DealRequestTypeId</sourceRef>
+        <targetRef>_27_DealRequestTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>BusinessUnitId</sourceRef>
+        <targetRef>_27_BusinessUnitIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>DealRequestId</sourceRef>
+        <targetRef>_27_DealRequestIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExitCheck</sourceRef>
+        <targetRef>_27_ExitCheckInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>PackagerId</sourceRef>
+        <targetRef>_27_PackagerIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>TaskInfo</sourceRef>
+        <targetRef>_27_TaskInfoInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ScriptTypeId</sourceRef>
+        <targetRef>_27_ScriptTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExecutionPath</sourceRef>
+        <targetRef>_27_ExecutionPathInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_27_ClassInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">com.ge.nbc.pdm.deal.bus.share.workflow.handler.TaskEvaluationWorkItemHandler</from>
+          <to xsi:type="tFormalExpression">_27_ClassInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_27_ExitCheckOutput</sourceRef>
+        <targetRef>ExitCheck</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_27_TaskInfoOutput</sourceRef>
+        <targetRef>TaskInfo</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <exclusiveGateway id="_26" name="Gateway" gatewayDirection="Diverging" />
+    <task id="_29" name="Evaluate Process Flow" tns:taskName="Task Evaluation" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Evaluating the ba path..");
+String executionPath = (String)kcontext.getVariable(PDMProperties.EXECUTION_PATH_STRING);
+executionPath = PDMProperties.CPR_SEQUENTIAL_PATH;
+kcontext.setVariable(PDMProperties.EXECUTION_PATH_STRING,executionPath);</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Evaluating out of ba path..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_29_DealRequestTypeIdInput" name="DealRequestTypeId" />
+        <dataInput id="_29_BusinessUnitIdInput" name="BusinessUnitId" />
+        <dataInput id="_29_DealRequestIdInput" name="DealRequestId" />
+        <dataInput id="_29_ExitCheckInput" name="ExitCheck" />
+        <dataInput id="_29_PackagerIdInput" name="PackagerId" />
+        <dataInput id="_29_TaskInfoInput" name="TaskInfo" />
+        <dataInput id="_29_ScriptTypeIdInput" name="ScriptTypeId" />
+        <dataInput id="_29_ExecutionPathInput" name="ExecutionPath" />
+        <dataInput id="_29_ClassInput" name="Class" />
+        <dataOutput id="_29_ExitCheckOutput" name="ExitCheck" />
+        <dataOutput id="_29_TaskInfoOutput" name="TaskInfo" />
+        <inputSet>
+          <dataInputRefs>_29_DealRequestTypeIdInput</dataInputRefs>
+          <dataInputRefs>_29_BusinessUnitIdInput</dataInputRefs>
+          <dataInputRefs>_29_DealRequestIdInput</dataInputRefs>
+          <dataInputRefs>_29_ExitCheckInput</dataInputRefs>
+          <dataInputRefs>_29_PackagerIdInput</dataInputRefs>
+          <dataInputRefs>_29_TaskInfoInput</dataInputRefs>
+          <dataInputRefs>_29_ScriptTypeIdInput</dataInputRefs>
+          <dataInputRefs>_29_ExecutionPathInput</dataInputRefs>
+          <dataInputRefs>_29_ClassInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_29_ExitCheckOutput</dataOutputRefs>
+          <dataOutputRefs>_29_TaskInfoOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>DealRequestTypeId</sourceRef>
+        <targetRef>_29_DealRequestTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>BusinessUnitId</sourceRef>
+        <targetRef>_29_BusinessUnitIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>DealRequestId</sourceRef>
+        <targetRef>_29_DealRequestIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExitCheck</sourceRef>
+        <targetRef>_29_ExitCheckInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>PackagerId</sourceRef>
+        <targetRef>_29_PackagerIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>TaskInfo</sourceRef>
+        <targetRef>_29_TaskInfoInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ScriptTypeId</sourceRef>
+        <targetRef>_29_ScriptTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExecutionPath</sourceRef>
+        <targetRef>_29_ExecutionPathInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_29_ClassInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">com.ge.nbc.pdm.deal.bus.share.workflow.handler.TaskEvaluationWorkItemHandler</from>
+          <to xsi:type="tFormalExpression">_29_ClassInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_29_ExitCheckOutput</sourceRef>
+        <targetRef>ExitCheck</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_29_TaskInfoOutput</sourceRef>
+        <targetRef>TaskInfo</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <task id="_28" name="Update Process Status" tns:taskName="Process Notification" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Entering the final node of the BPMN..");</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Exiting the final node of the BPMN..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_28_DealRequestIdInput" name="DealRequestId" />
+        <dataInput id="_28_ExitCheckInput" name="ExitCheck" />
+        <dataInput id="_28_ClassInput" name="Class" />
+        <inputSet>
+          <dataInputRefs>_28_DealRequestIdInput</dataInputRefs>
+          <dataInputRefs>_28_ExitCheckInput</dataInputRefs>
+          <dataInputRefs>_28_ClassInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>DealRequestId</sourceRef>
+        <targetRef>_28_DealRequestIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExitCheck</sourceRef>
+        <targetRef>_28_ExitCheckInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_28_ClassInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">com.ge.nbc.pdm.deal.bus.share.workflow.handler.ProcessUpdationWorkItemHandler</from>
+          <to xsi:type="tFormalExpression">_28_ClassInput</to>
+        </assignment>
+      </dataInputAssociation>
+    </task>
+    <task id="_31" name="Identify Initial Approvers" tns:taskName="Task Identification" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Entering the identifier node of parallel path 1..");</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("Exiting the identifer node of parallel path 1..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_31_DealRequestTypeIdInput" name="DealRequestTypeId" />
+        <dataInput id="_31_BusinessUnitIdInput" name="BusinessUnitId" />
+        <dataInput id="_31_DependentTaskInput" name="DependentTask" />
+        <dataInput id="_31_PackagerIdInput" name="PackagerId" />
+        <dataInput id="_31_ScriptTypeIdInput" name="ScriptTypeId" />
+        <dataInput id="_31_ExecutionPathInput" name="ExecutionPath" />
+        <dataInput id="_31_ClassInput" name="Class" />
+        <dataOutput id="_31_TaskInfoOutput" name="TaskInfo" />
+        <inputSet>
+          <dataInputRefs>_31_DealRequestTypeIdInput</dataInputRefs>
+          <dataInputRefs>_31_BusinessUnitIdInput</dataInputRefs>
+          <dataInputRefs>_31_DependentTaskInput</dataInputRefs>
+          <dataInputRefs>_31_PackagerIdInput</dataInputRefs>
+          <dataInputRefs>_31_ScriptTypeIdInput</dataInputRefs>
+          <dataInputRefs>_31_ExecutionPathInput</dataInputRefs>
+          <dataInputRefs>_31_ClassInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_31_TaskInfoOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>DealRequestTypeId</sourceRef>
+        <targetRef>_31_DealRequestTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>BusinessUnitId</sourceRef>
+        <targetRef>_31_BusinessUnitIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>DependentTask</sourceRef>
+        <targetRef>_31_DependentTaskInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>PackagerId</sourceRef>
+        <targetRef>_31_PackagerIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ScriptTypeId</sourceRef>
+        <targetRef>_31_ScriptTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExecutionPath</sourceRef>
+        <targetRef>_31_ExecutionPathInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_31_ClassInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">com.ge.nbc.pdm.deal.bus.share.workflow.handler.TaskIdentifcationWorkItemHandler</from>
+          <to xsi:type="tFormalExpression">_31_ClassInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_31_TaskInfoOutput</sourceRef>
+        <targetRef>TaskInfo</targetRef>
+      </dataOutputAssociation>
+    </task>
+    <task id="_30" name="Identify Initial Approvers" tns:taskName="Task Identification" >
+      <extensionElements>
+        <tns:onEntry-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("entering the seq path..");</script>
+        </tns:onEntry-script>
+        <tns:onExit-script scriptFormat="http://www.java.com/java">
+          <script>System.out.println("exiting the seq path..");</script>
+        </tns:onExit-script>
+      </extensionElements>
+      <ioSpecification>
+        <dataInput id="_30_DealRequestTypeIdInput" name="DealRequestTypeId" />
+        <dataInput id="_30_BusinessUnitIdInput" name="BusinessUnitId" />
+        <dataInput id="_30_PackagerIdInput" name="PackagerId" />
+        <dataInput id="_30_ScriptTypeIdInput" name="ScriptTypeId" />
+        <dataInput id="_30_ExecutionPathInput" name="ExecutionPath" />
+        <dataInput id="_30_ClassInput" name="Class" />
+        <dataOutput id="_30_TaskInfoOutput" name="TaskInfo" />
+        <inputSet>
+          <dataInputRefs>_30_DealRequestTypeIdInput</dataInputRefs>
+          <dataInputRefs>_30_BusinessUnitIdInput</dataInputRefs>
+          <dataInputRefs>_30_PackagerIdInput</dataInputRefs>
+          <dataInputRefs>_30_ScriptTypeIdInput</dataInputRefs>
+          <dataInputRefs>_30_ExecutionPathInput</dataInputRefs>
+          <dataInputRefs>_30_ClassInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_30_TaskInfoOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>DealRequestTypeId</sourceRef>
+        <targetRef>_30_DealRequestTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>BusinessUnitId</sourceRef>
+        <targetRef>_30_BusinessUnitIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>PackagerId</sourceRef>
+        <targetRef>_30_PackagerIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ScriptTypeId</sourceRef>
+        <targetRef>_30_ScriptTypeIdInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <sourceRef>ExecutionPath</sourceRef>
+        <targetRef>_30_ExecutionPathInput</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_30_ClassInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">com.ge.nbc.pdm.deal.bus.share.workflow.handler.TaskIdentifcationWorkItemHandler</from>
+          <to xsi:type="tFormalExpression">_30_ClassInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_30_TaskInfoOutput</sourceRef>
+        <targetRef>TaskInfo</targetRef>
+      </dataOutputAssociation>
+    </task>
+
+    <!-- connections -->
+    <sequenceFlow id="_4-_32" sourceRef="_4" targetRef="_32" />
+    <sequenceFlow id="_15-_33" sourceRef="_15" targetRef="_33" />
+    <sequenceFlow id="_15-_4" sourceRef="_15" targetRef="_4" />
+    <sequenceFlow id="_28-_8" sourceRef="_28" targetRef="_8" />
+    <sequenceFlow id="_20-_10" sourceRef="_20" targetRef="_10" />
+    <sequenceFlow id="_26-_10" sourceRef="_26" targetRef="_10" name="exit" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" >return true;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_14-_12" sourceRef="_14" targetRef="_12" />
+    <sequenceFlow id="_19-_14" sourceRef="_19" targetRef="_14" />
+    <sequenceFlow id="_1-_15" sourceRef="_1" targetRef="_15" />
+    <sequenceFlow id="_18-_17" sourceRef="_18" targetRef="_17" name="feedback" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >Boolean feedBack = Boolean.valueOf(true);
+System.out.println("ExitChecker.." + kcontext.getVariable(PDMProperties.EXIT_CHECK_STRING));
+feedBack = (Boolean) kcontext.getVariable(PDMProperties.EXIT_CHECK_STRING);
+if(!feedBack.booleanValue())
+{
+		return false;
+}
+else
+{
+		return true;
+}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_17-_19" sourceRef="_17" targetRef="_19" />
+    <sequenceFlow id="_31-_19" sourceRef="_31" targetRef="_19" />
+    <sequenceFlow id="_27-_18" sourceRef="_27" targetRef="_18" />
+    <sequenceFlow id="_18-_20" sourceRef="_18" targetRef="_20" name="Exit" tns:priority="1" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.jboss.org/drools/rule" >eval(true)</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_22-_23" sourceRef="_22" targetRef="_23" />
+    <sequenceFlow id="_25-_22" sourceRef="_25" targetRef="_22" />
+    <sequenceFlow id="_30-_22" sourceRef="_30" targetRef="_22" />
+    <sequenceFlow id="_26-_25" sourceRef="_26" targetRef="_25" name="feedback" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >Boolean feedBack = Boolean.valueOf(true);
+System.out.println("ExitChecker.." + kcontext.getVariable(PDMProperties.EXIT_CHECK_STRING));
+feedBack = (Boolean) kcontext.getVariable(PDMProperties.EXIT_CHECK_STRING);
+if(!feedBack.booleanValue())
+{
+		return false;
+}
+else
+{
+		return true;
+}</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_12-_27" sourceRef="_12" targetRef="_27" />
+    <sequenceFlow id="_29-_26" sourceRef="_29" targetRef="_26" />
+    <sequenceFlow id="_23-_29" sourceRef="_23" targetRef="_29" />
+    <sequenceFlow id="_10-_28" sourceRef="_10" targetRef="_28" />
+    <sequenceFlow id="_33-_31" sourceRef="_33" targetRef="_31" />
+    <sequenceFlow id="_32-_30" sourceRef="_32" targetRef="_30" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="CPR" >
+      <bpmndi:BPMNShape bpmnElement="_1" >
+        <dc:Bounds x="7" y="210" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_32" >
+        <dc:Bounds x="1136" y="693" width="145" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_33" >
+        <dc:Bounds x="63" y="106" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" >
+        <dc:Bounds x="79" y="299" width="975" height="542" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1" >
+        <dc:Bounds x="176" y="351" width="779" height="438" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-1" >
+        <dc:Bounds x="-160" y="-1194" width="332" height="91" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-1-2-1" >
+        <dc:Bounds x="-895" y="-5775" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-1-2-2" >
+        <dc:Bounds x="-670" y="-5775" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-1-2-3" >
+        <dc:Bounds x="-815" y="-5751" width="118" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-2" >
+        <dc:Bounds x="-297" y="-1342" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-3" >
+        <dc:Bounds x="249" y="-1011" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-6" >
+        <dc:Bounds x="-286" y="-1173" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-7" >
+        <dc:Bounds x="84" y="-1011" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-8" >
+        <dc:Bounds x="-149" y="-1010" width="118" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-9" >
+        <dc:Bounds x="-356" y="-1250" width="165" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-10" >
+        <dc:Bounds x="230" y="-1168" width="144" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-1-11" >
+        <dc:Bounds x="-89" y="-1298" width="159" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-2" >
+        <dc:Bounds x="88" y="550" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4-2-3" >
+        <dc:Bounds x="996" y="554" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_8" >
+        <dc:Bounds x="1549" y="307" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_10" >
+        <dc:Bounds x="1258" y="306" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_12" >
+        <dc:Bounds x="465" y="38" width="331" height="151" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_12-2-1" >
+        <dc:Bounds x="559" y="80" width="137" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_12-2-2" >
+        <dc:Bounds x="473" y="80" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_12-2-3" >
+        <dc:Bounds x="735" y="80" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_14" >
+        <dc:Bounds x="258" y="92" width="102" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_15" >
+        <dc:Bounds x="78" y="209" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_17" >
+        <dc:Bounds x="571" y="212" width="132" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_19" >
+        <dc:Bounds x="283" y="212" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_18" >
+        <dc:Bounds x="929" y="212" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_20" >
+        <dc:Bounds x="1078" y="213" width="83" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_23" >
+        <dc:Bounds x="1124" y="466" width="302" height="149" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_23-2-1" >
+        <dc:Bounds x="1137" y="515" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_23-2-2" >
+        <dc:Bounds x="1219" y="516" width="109" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_23-2-3" >
+        <dc:Bounds x="1366" y="517" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_22" >
+        <dc:Bounds x="1362" y="792" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_25" >
+        <dc:Bounds x="1471" y="792" width="80" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_27" >
+        <dc:Bounds x="880" y="88" width="150" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_26" >
+        <dc:Bounds x="1565" y="532" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_29" >
+        <dc:Bounds x="1375" y="655" width="141" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_28" >
+        <dc:Bounds x="1357" y="306" width="142" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_31" >
+        <dc:Bounds x="122" y="18" width="155" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_30" >
+        <dc:Bounds x="1134" y="792" width="170" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-1-2-3-_4-2-1-1-2-2" >
+        <di:waypoint x="-596" y="-4533" />
+        <di:waypoint x="-486" y="-4557" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-1-2-1-_4-2-1-1-2-3" >
+        <di:waypoint x="-711" y="-4557" />
+        <di:waypoint x="-596" y="-4533" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-6-_4-2-1-1" >
+        <di:waypoint x="-438" y="-1500" />
+        <di:waypoint x="-170" y="-1500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-7-_4-2-1-3" >
+        <di:waypoint x="-68" y="-1338" />
+        <di:waypoint x="97" y="-1338" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-8-_4-2-1-6" >
+        <di:waypoint x="-266" y="-1337" />
+        <di:waypoint x="-438" y="-1500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-11-_4-2-1-6" >
+        <di:waypoint x="-186" y="-1625" />
+        <di:waypoint x="-438" y="-1500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-10-_4-2-1-7" >
+        <di:waypoint x="126" y="-1495" />
+        <di:waypoint x="-68" y="-1338" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-7-_4-2-1-8" >
+        <di:waypoint x="-68" y="-1338" />
+        <di:waypoint x="-266" y="-1337" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-2-_4-2-1-9" >
+        <di:waypoint x="-449" y="-1669" />
+        <di:waypoint x="-450" y="-1577" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-1-_4-2-1-10" >
+        <di:waypoint x="-170" y="-1500" />
+        <di:waypoint x="126" y="-1495" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-9-_4-2-1-11" >
+        <di:waypoint x="-450" y="-1577" />
+        <di:waypoint x="-186" y="-1625" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-2-_4-2-1" >
+        <di:waypoint x="33" y="275" />
+        <di:waypoint x="486" y="271" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-2-1-_4-2-3" >
+        <di:waypoint x="486" y="271" />
+        <di:waypoint x="941" y="279" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12-2-2-_12-2-1" >
+        <di:waypoint x="32" y="66" />
+        <di:waypoint x="162" y="66" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12-2-1-_12-2-3" >
+        <di:waypoint x="162" y="66" />
+        <di:waypoint x="294" y="66" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23-2-1-_23-2-2" >
+        <di:waypoint x="37" y="73" />
+        <di:waypoint x="149" y="74" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23-2-2-_23-2-3" >
+        <di:waypoint x="149" y="74" />
+        <di:waypoint x="266" y="75" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4-_32" >
+        <di:waypoint x="566" y="570" />
+        <di:waypoint x="1208" y="717" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_15-_33" >
+        <di:waypoint x="102" y="233" />
+        <di:waypoint x="103" y="130" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_15-_4" >
+        <di:waypoint x="102" y="233" />
+        <di:waypoint x="566" y="570" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_28-_8" >
+        <di:waypoint x="1428" y="330" />
+        <di:waypoint x="1573" y="331" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_20-_10" >
+        <di:waypoint x="1119" y="237" />
+        <di:waypoint x="1282" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_26-_10" >
+        <di:waypoint x="1589" y="556" />
+        <di:waypoint x="1282" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_14-_12" >
+        <di:waypoint x="309" y="116" />
+        <di:waypoint x="630" y="113" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_19-_14" >
+        <di:waypoint x="307" y="236" />
+        <di:waypoint x="309" y="116" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_1-_15" >
+        <di:waypoint x="31" y="234" />
+        <di:waypoint x="102" y="233" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_18-_17" >
+        <di:waypoint x="953" y="236" />
+        <di:waypoint x="637" y="236" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_17-_19" >
+        <di:waypoint x="637" y="236" />
+        <di:waypoint x="307" y="236" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_31-_19" >
+        <di:waypoint x="199" y="42" />
+        <di:waypoint x="307" y="236" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_27-_18" >
+        <di:waypoint x="955" y="112" />
+        <di:waypoint x="953" y="236" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_18-_20" >
+        <di:waypoint x="953" y="236" />
+        <di:waypoint x="1119" y="237" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_22-_23" >
+        <di:waypoint x="1386" y="816" />
+        <di:waypoint x="1275" y="540" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_25-_22" >
+        <di:waypoint x="1511" y="816" />
+        <di:waypoint x="1386" y="816" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_30-_22" >
+        <di:waypoint x="1219" y="816" />
+        <di:waypoint x="1386" y="816" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_26-_25" >
+        <di:waypoint x="1589" y="556" />
+        <di:waypoint x="1511" y="816" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12-_27" >
+        <di:waypoint x="630" y="113" />
+        <di:waypoint x="955" y="112" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_29-_26" >
+        <di:waypoint x="1445" y="679" />
+        <di:waypoint x="1589" y="556" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23-_29" >
+        <di:waypoint x="1275" y="540" />
+        <di:waypoint x="1445" y="679" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10-_28" >
+        <di:waypoint x="1282" y="330" />
+        <di:waypoint x="1428" y="330" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_33-_31" >
+        <di:waypoint x="103" y="130" />
+        <di:waypoint x="199" y="42" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_32-_30" >
+        <di:waypoint x="1208" y="717" />
+        <di:waypoint x="1219" y="816" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
