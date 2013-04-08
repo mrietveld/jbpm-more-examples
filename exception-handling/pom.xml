@@ -2,130 +2,70 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>org.jbpm.examples</groupId>
-  <artifactId>parent</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
 
-  <name>jBPM Examples project</name>
-  <description>Marco's jBPM examples</description>
+  <parent>
+    <groupId>org.jbpm.more.examples</groupId>
+    <artifactId>parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
 
-  <properties>
-    <jvm.version>1.5</jvm.version>
-  </properties>
-  
-  <dependencyManagement>
-    <dependencies>
-      <!-- persistence -->
-      <dependency>
-        <groupId>javax.persistence</groupId>
-        <artifactId>persistence-api</artifactId>
-        <version>1.0</version>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-entitymanager</artifactId>
-        <version>${hibernate.em.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-core</artifactId>
-        <version>${hibernate.core.version}</version>
-      </dependency>
+  <artifactId>exception-handling</artifactId>
 
-      <!-- logging -->
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
+  <name>examples :: exception handling</name>
+  <description>Examples showing how to do exception handling </description>
 
-      <!-- drools -->
-      <dependency>
-        <groupId>org.drools</groupId>
-        <artifactId>drools-core</artifactId>
-        <version>${drools.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.drools</groupId>
-        <artifactId>drools-compiler</artifactId>
-        <version>${drools.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.drools</groupId>
-        <artifactId>drools-persistence-jpa</artifactId>
-        <version>${drools.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.drools</groupId>
-        <artifactId>knowledge-api</artifactId>
-        <version>${drools.version}</version>
-      </dependency>
+  <dependencies>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-bpmn2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-bam</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-persistence-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-human-task</artifactId>
+    </dependency>
 
-      <!-- jbpm -->
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-bpmn2</artifactId>
-        <version>${jbpm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-flow</artifactId>
-        <version>${jbpm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-flow-builder</artifactId>
-        <version>${jbpm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-human-task</artifactId>
-        <version>${jbpm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-human-task</artifactId>
-        <version>${jbpm.version}</version>
-        <type>test-jar</type>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-bam</artifactId>
-        <version>${jbpm.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-persistence-jpa</artifactId>
-        <version>${jbpm.version}</version>
-      </dependency>
+    <!-- logging -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
 
-      <!-- btm -->
-      <dependency>
-        <groupId>org.codehaus.btm</groupId>
-        <artifactId>btm</artifactId>
-        <version>${btm.version}</version>
-      </dependency>
+    <!-- test -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
 
-      <dependency>
-        <groupId>com.h2database</groupId>
-        <artifactId>h2</artifactId>
-        <version>${h2.version}</version>
-      </dependency>
-
-      <!-- mysql -->
-      <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>5.1.19</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
+    <!-- test persistence -->
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.btm</groupId>
+      <artifactId>btm</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>
@@ -134,11 +74,11 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.0.2</version>
         <configuration>
-          <source>${jvm.version}</source>
-          <target>${jvm.version}</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
     </plugins>
   </build>
-  
+
 </project>
