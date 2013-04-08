@@ -9,9 +9,9 @@
     <version>0.1.5-SNAPSHOT</version>
   </parent>
 
-  <artifactId>exception-handling</artifactId>
+  <artifactId>unit-test</artifactId>
 
-  <name>More examples :: Exception handling :: 5.2.x</name>
+  <name>More examples :: Unit test :: 5.2.x</name>
   <description>Examples showing how to do exception handling </description>
 
   <dependencies>
