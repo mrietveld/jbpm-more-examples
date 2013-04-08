@@ -54,6 +54,7 @@ public class HandleExceptionServiceTaskHandler implements WorkItemHandler {
             Method method = c.getMethod(operation, classes);
             Object result = method.invoke(instance, params);
 
+            // The code that then saves the failure information if the service failed
             if( result instanceof Boolean ) { 
                if( ! (Boolean) result )  {
                   addFailureInformation(workItem, inputMap); 
@@ -71,6 +72,21 @@ public class HandleExceptionServiceTaskHandler implements WorkItemHandler {
         }
     }
 
+    /**
+     * This method saves the failure information to a Map -- the Map instance
+     * should be a process variable so that other nodes can access this information. 
+     * </p>
+     * This example only deals with *1* service call -- but if you're dealing with 
+     * multiple service calls (or multiple instances), you could change your Map<String, Object> to 
+     * a Map<Long, Map<String, Object>> which you could then use to associate a work item id (or other
+     * id) with the (failure) information for a service. 
+     * </p>
+     * Lastly, since you're using persistence, remember to make sure that if you use something besides a 
+     * Map to hold this information, then you need to make that "something" object Serializable as well.
+     * 
+     * @param workItem The workItem associated with the failed service call. 
+     * @param inputMap A process variable of the form Map<String, Object>
+     */
     @SuppressWarnings("unchecked")
     private void addFailureInformation(WorkItem workItem, Map inputMap) { 
         String serviceInterface = (String) workItem.getParameter("Interface");
