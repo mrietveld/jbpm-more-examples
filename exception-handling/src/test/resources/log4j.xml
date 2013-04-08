@@ -36,6 +36,10 @@
     <logger name="org.hibernate.tool.hbm2ddl">
         <level value="WARN"/>
     </logger>
+    <logger name="java.sql.DatabaseMetaData">
+        <level value="WARN"/>
+    </logger>
+    
 
 	<root>
 		<priority value="INFO"/>

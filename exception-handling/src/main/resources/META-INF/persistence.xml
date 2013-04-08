@@ -49,11 +49,13 @@
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <jta-data-source>jdbc/jbpmDS</jta-data-source>
     <mapping-file>META-INF/JBPMorm.xml</mapping-file>
-    <mapping-file>META-INF/ProcessInstanceInfo.hbm.xml</mapping-file>
 
     <class>org.drools.persistence.info.SessionInfo</class>
-    <class>org.jbpm.persistence.processinstance.ProcessInstanceInfo</class>
     <class>org.drools.persistence.info.WorkItemInfo</class>
+    <class>org.jbpm.persistence.processinstance.ProcessInstanceInfo</class>
+
+    <class>org.jbpm.persistence.correlation.CorrelationKeyInfo</class>
+    <class>org.jbpm.persistence.correlation.CorrelationPropertyInfo</class>
 
     <class>org.jbpm.process.audit.ProcessInstanceLog</class>
     <class>org.jbpm.process.audit.NodeInstanceLog</class>

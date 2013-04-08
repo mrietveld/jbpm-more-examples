@@ -9,10 +9,10 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>exception-handling</artifactId>
+  <artifactId>process-variables</artifactId>
 
-  <name>examples :: exception handling</name>
-  <description>Examples showing how to do exception handling </description>
+  <name>More examples :: Process variables</name>
+  <description>Examples with various methods dealing with process variables</description>
 
   <dependencies>
     <dependency>

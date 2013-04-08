@@ -9,12 +9,19 @@
     <version>0.1.6-SNAPSHOT</version>
   </parent>
 
-  <artifactId>exception-handling</artifactId>
+  <artifactId>unit-test</artifactId>
 
-  <name>More examples :: Exception handling</name>
-  <description>Examples showing how to do exception handling </description>
+  <name>More examples :: Unit test</name>
+  <description>Utility classes for testing</description>
 
   <dependencies>
+    <!-- kie -->
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-api</artifactId>
+    </dependency>
+    
+    <!-- jbpm -->
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-bpmn2</artifactId>
@@ -31,6 +38,10 @@
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-human-task-services</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-shared-services</artifactId>
+    </dependency>
 
     <!-- logging -->
     <dependency>
@@ -43,12 +54,6 @@
     </dependency>
 
     <!-- test -->
-    <dependency>
-      <groupId>org.jbpm.more.examples</groupId>
-      <artifactId>unit-test</artifactId>
-      <type>test-jar</type>
-      <scope>test</scope>
-    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
@@ -83,6 +88,19 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>test-jar</id>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

@@ -1,48 +1,75 @@
-package org.jbpm.more.examples;
+package org.jbpm.more.examples.test;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
+import javax.enterprise.event.Event;
+import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.transaction.Status;
 import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 
-import org.drools.KnowledgeBase;
-import org.drools.KnowledgeBaseFactory;
-import org.drools.SystemEventListenerFactory;
-import org.drools.builder.KnowledgeBuilder;
-import org.drools.builder.KnowledgeBuilderError;
-import org.drools.builder.KnowledgeBuilderFactory;
-import org.drools.builder.ResourceType;
-import org.drools.definition.process.Node;
-import org.drools.impl.EnvironmentFactory;
-import org.drools.io.ResourceFactory;
-import org.drools.persistence.jpa.JPAKnowledgeService;
-import org.drools.runtime.Environment;
-import org.drools.runtime.EnvironmentName;
-import org.drools.runtime.KnowledgeSessionConfiguration;
-import org.drools.runtime.StatefulKnowledgeSession;
-import org.drools.runtime.process.NodeInstance;
-import org.drools.runtime.process.NodeInstanceContainer;
-import org.drools.runtime.process.ProcessInstance;
-import org.drools.runtime.process.WorkflowProcessInstance;
+import org.drools.core.impl.EnvironmentFactory;
 import org.h2.tools.DeleteDbFiles;
 import org.jbpm.process.audit.JPAProcessInstanceDbLog;
 import org.jbpm.process.audit.JPAWorkingMemoryDbLogger;
 import org.jbpm.process.audit.NodeInstanceLog;
-import org.jbpm.process.workitem.wsht.SyncWSHumanTaskHandler;
-import org.jbpm.task.TaskService;
-import org.jbpm.task.service.local.LocalTaskService;
+import org.jbpm.services.task.deadlines.DeadlinesDecorator;
+import org.jbpm.services.task.identity.MvelUserGroupCallbackImpl;
+import org.jbpm.services.task.identity.UserGroupLifeCycleManagerDecorator;
+import org.jbpm.services.task.identity.UserGroupTaskInstanceServiceDecorator;
+import org.jbpm.services.task.identity.UserGroupTaskQueryServiceDecorator;
+import org.jbpm.services.task.impl.TaskAdminServiceImpl;
+import org.jbpm.services.task.impl.TaskContentServiceImpl;
+import org.jbpm.services.task.impl.TaskDeadlinesServiceImpl;
+import org.jbpm.services.task.impl.TaskIdentityServiceImpl;
+import org.jbpm.services.task.impl.TaskInstanceServiceImpl;
+import org.jbpm.services.task.impl.TaskQueryServiceImpl;
+import org.jbpm.services.task.impl.TaskServiceEntryPointImpl;
+import org.jbpm.services.task.internals.lifecycle.LifeCycleManager;
+import org.jbpm.services.task.internals.lifecycle.MVELLifeCycleManager;
+import org.jbpm.services.task.subtask.SubTaskDecorator;
+import org.jbpm.shared.services.api.JbpmServicesPersistenceManager;
+import org.jbpm.shared.services.impl.JbpmLocalTransactionManager;
+import org.jbpm.shared.services.impl.JbpmServicesPersistenceManagerImpl;
+import org.jbpm.shared.services.impl.events.JbpmServicesEventImpl;
 import org.jbpm.workflow.instance.impl.WorkflowProcessInstanceImpl;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.kie.api.KieBase;
+import org.kie.api.definition.process.Node;
+import org.kie.api.io.ResourceType;
+import org.kie.api.runtime.Environment;
+import org.kie.api.runtime.EnvironmentName;
+import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.KieSessionConfiguration;
+import org.kie.api.runtime.process.NodeInstance;
+import org.kie.api.runtime.process.NodeInstanceContainer;
+import org.kie.api.runtime.process.ProcessInstance;
+import org.kie.api.runtime.process.WorkflowProcessInstance;
+import org.kie.internal.KnowledgeBaseFactory;
+import org.kie.internal.builder.KnowledgeBuilder;
+import org.kie.internal.builder.KnowledgeBuilderError;
+import org.kie.internal.builder.KnowledgeBuilderFactory;
+import org.kie.internal.io.ResourceFactory;
+import org.kie.internal.persistence.jpa.JPAKnowledgeService;
+import org.kie.internal.runtime.StatefulKnowledgeSession;
+import org.kie.internal.task.api.TaskAdminService;
+import org.kie.internal.task.api.TaskContentService;
+import org.kie.internal.task.api.TaskDeadlinesService;
+import org.kie.internal.task.api.TaskIdentityService;
+import org.kie.internal.task.api.TaskInstanceService;
+import org.kie.internal.task.api.TaskQueryService;
+import org.kie.internal.task.api.TaskService;
+import org.kie.internal.task.api.UserGroupCallback;
+import org.kie.internal.task.api.model.NotificationEvent;
+import org.kie.internal.task.api.model.Task;
 
 import bitronix.tm.TransactionManagerServices;
 import bitronix.tm.resource.jdbc.PoolingDataSource;
@@ -67,7 +94,7 @@ public abstract class AbstractJbpmTest extends Assert {
     public TestName testName = new TestName();
 
     protected AbstractJbpmTest() {
-        logger = LoggerFactory.getLogger(this.getClass());
+        this.logger = Logger.getLogger(this.getClass().getCanonicalName());
     }
 
     public static PoolingDataSource setupPoolingDataSource(String dbFilename) {
@@ -87,7 +114,7 @@ public abstract class AbstractJbpmTest extends Assert {
     @Before
     public void setUp() throws Exception {
         if (logger == null) {
-            logger = LoggerFactory.getLogger(getClass());
+            //logger = LoggerFactory.getLogger(getClass());
         }
         ds = setupPoolingDataSource(dbFilename);
         emf = Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
@@ -143,7 +170,7 @@ public abstract class AbstractJbpmTest extends Assert {
         }
     }
 
-    protected KnowledgeBase createKnowledgeBase(String... bpmn2Filename) {
+    protected KieBase createKnowledgeBase(String... bpmn2Filename) {
         KnowledgeBuilder kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         for (String f : bpmn2Filename) {
             kbuilder.add(ResourceFactory.newClassPathResource(f), ResourceType.BPMN2);
@@ -154,7 +181,7 @@ public abstract class AbstractJbpmTest extends Assert {
             if (kbuilder.getErrors().size() > 0) {
                 boolean errors = false;
                 for (KnowledgeBuilderError error : kbuilder.getErrors()) {
-                    logger.warn(error.toString());
+                    logger.warning(error.toString());
                     errors = true;
                 }
                 assertFalse("Could not build knowldge base.", errors);
@@ -163,9 +190,9 @@ public abstract class AbstractJbpmTest extends Assert {
         return kbuilder.newKnowledgeBase();
     }
 
-    protected StatefulKnowledgeSession createKnowledgeSession(KnowledgeBase kbase) {
+    protected KieSession createKnowledgeSession(KieBase kbase) {
         StatefulKnowledgeSession ksession;
-        final KnowledgeSessionConfiguration conf = KnowledgeBaseFactory.newKnowledgeSessionConfiguration();
+        final KieSessionConfiguration conf = KnowledgeBaseFactory.newKnowledgeSessionConfiguration();
         // Do NOT use the Pseudo clock yet..
         // conf.setOption( ClockTypeOption.get( ClockType.PSEUDO_CLOCK.getId() ) );
 
@@ -180,18 +207,17 @@ public abstract class AbstractJbpmTest extends Assert {
         return ksession;
     }
 
-    protected StatefulKnowledgeSession createKnowledgeSession(String... bpmn2Filename) {
-        KnowledgeBase kbase = createKnowledgeBase(bpmn2Filename);
+    protected KieSession createKnowledgeSession(String... bpmn2Filename) {
+        KieBase kbase = createKnowledgeBase(bpmn2Filename);
         return createKnowledgeSession(kbase);
     }
 
-    public StatefulKnowledgeSession reloadSession(StatefulKnowledgeSession ksession) throws SystemException {
+    public KieSession reloadSession(StatefulKnowledgeSession ksession) throws SystemException {
         int id = ksession.getId();
 
-        KnowledgeBase kbase = ksession.getKnowledgeBase();
+        KieBase kbase = ksession.getKieBase();
 
         // Close/clean-up
-        KnowledgeSessionConfiguration config = ksession.getSessionConfiguration();
         ksession.dispose();
         emf.close();
 
@@ -201,17 +227,17 @@ public abstract class AbstractJbpmTest extends Assert {
         return loadSession(id, kbase);
     }
 
-    public StatefulKnowledgeSession loadSession(int id, String... process) {
-        KnowledgeBase kbase = createKnowledgeBase(process);
+    public KieSession loadSession(int id, String... process) {
+        KieBase kbase = createKnowledgeBase(process);
         return loadSession(id, kbase);
     }
 
-    protected StatefulKnowledgeSession loadSession(int id, KnowledgeBase kbase) {
+    protected StatefulKnowledgeSession loadSession(int id, KieBase kbase) {
         Environment env = EnvironmentFactory.newEnvironment();
         emf = Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
         env.set(EnvironmentName.ENTITY_MANAGER_FACTORY, emf);
 
-        KnowledgeSessionConfiguration config = KnowledgeBaseFactory.newKnowledgeSessionConfiguration();
+        KieSessionConfiguration config = KnowledgeBaseFactory.newKnowledgeSessionConfiguration();
         StatefulKnowledgeSession ksession = JPAKnowledgeService.loadStatefulKnowledgeSession(id, kbase, config, env);
 
         // logging
@@ -221,23 +247,112 @@ public abstract class AbstractJbpmTest extends Assert {
         return ksession;
     }
 
-    public TaskService getAndRegisterTaskService(StatefulKnowledgeSession ksession) {
-        // Create task service (using hornetq? substitute the correct code here.. )
-        org.jbpm.task.service.TaskService taskService = new org.jbpm.task.service.TaskService(emf,
-                SystemEventListenerFactory.getSystemEventListener());
-        LocalTaskService localTaskService = new LocalTaskService(taskService);
-        
-        // work item handler
-        SyncWSHumanTaskHandler humanTaskHandler = new SyncWSHumanTaskHandler(localTaskService, ksession);
-        humanTaskHandler.setLocal(true);
-        humanTaskHandler.connect();
-       
-        // Register the handler
-        ksession.getWorkItemManager().registerWorkItemHandler("Human Task", humanTaskHandler);
-        
-        return localTaskService;
-    }
+//    public TaskServiceEntryPoint getAndRegisterTaskService(StatefulKnowledgeSession ksession) {
+//        // Create task service (using hornetq? substitute the correct code here.. )
+//        .service.TaskService taskService = new org.jbpm.task.service.TaskService(emf,
+//                SystemEventListenerFactory.getSystemEventListener());
+//        LocalTaskService localTaskService = new LocalTaskService(taskService);
+//        
+//        // work item handler
+//        SyncWSHumanTaskHandler humanTaskHandler = new SyncWSHumanTaskHandler(localTaskService, ksession);
+//        humanTaskHandler.setLocal(true);
+//        humanTaskHandler.connect();
+//       
+//        // Register the handler
+//        ksession.getWorkItemManager().registerWorkItemHandler("Human Task", humanTaskHandler);
+//        
+//        return localTaskService;
+//    }
 
+    protected void createTaskServiceEntryPoint(EntityManagerFactory emf) { 
+            EntityManager em = emf.createEntityManager();
+            
+            logger = java.util.logging.LogManager.getLogManager().getLogger("");
+
+            
+            JbpmServicesPersistenceManager pm = new JbpmServicesPersistenceManagerImpl();
+            ((JbpmServicesPersistenceManagerImpl)pm).setEm(em);
+            ((JbpmServicesPersistenceManagerImpl)pm).setTransactionManager(new JbpmLocalTransactionManager());
+            TaskService taskService = new TaskServiceEntryPointImpl();
+            
+            Event<Task> taskEvents = new JbpmServicesEventImpl<Task>();
+            
+            Event<NotificationEvent> notificationEvents = new JbpmServicesEventImpl<NotificationEvent>();
+            
+            UserGroupCallback userGroupCallback = new MvelUserGroupCallbackImpl();
+            
+            TaskQueryService queryService = new TaskQueryServiceImpl();
+            ((TaskQueryServiceImpl)queryService).setPm(pm);
+            
+            
+            UserGroupTaskQueryServiceDecorator userGroupTaskQueryServiceDecorator = new UserGroupTaskQueryServiceDecorator();
+            userGroupTaskQueryServiceDecorator.setPm(pm);
+            userGroupTaskQueryServiceDecorator.setUserGroupCallback(userGroupCallback);
+            userGroupTaskQueryServiceDecorator.setDelegate(queryService);
+            
+            ((TaskServiceEntryPointImpl)taskService).setTaskQueryService(userGroupTaskQueryServiceDecorator);
+            
+            TaskIdentityService identityService = new TaskIdentityServiceImpl();
+            ((TaskIdentityServiceImpl)identityService).setPm(pm);
+            ((TaskServiceEntryPointImpl)taskService).setTaskIdentityService(identityService);
+            
+            TaskAdminService adminService = new TaskAdminServiceImpl();
+            ((TaskAdminServiceImpl)adminService).setPm(pm);
+            ((TaskServiceEntryPointImpl)taskService).setTaskAdminService(adminService);
+            
+            TaskInstanceService instanceService = new TaskInstanceServiceImpl();
+            ((TaskInstanceServiceImpl)instanceService).setPm(pm);
+            ((TaskInstanceServiceImpl)instanceService).setTaskQueryService(userGroupTaskQueryServiceDecorator);
+            ((TaskInstanceServiceImpl)instanceService).setTaskEvents(taskEvents);
+            
+            UserGroupTaskInstanceServiceDecorator userGroupTaskInstanceDecorator = new UserGroupTaskInstanceServiceDecorator();
+            userGroupTaskInstanceDecorator.setPm(pm);
+            userGroupTaskInstanceDecorator.setUserGroupCallback(userGroupCallback);
+            userGroupTaskInstanceDecorator.setDelegate(instanceService);
+            
+            TaskContentService contentService = new TaskContentServiceImpl();
+            ((TaskContentServiceImpl)contentService).setPm(pm);
+            ((TaskServiceEntryPointImpl)taskService).setTaskContentService(contentService);
+            
+            LifeCycleManager mvelLifeCycleManager = new MVELLifeCycleManager();
+            ((MVELLifeCycleManager)mvelLifeCycleManager).setPm(pm);
+            ((MVELLifeCycleManager)mvelLifeCycleManager).setTaskIdentityService(identityService);
+            ((MVELLifeCycleManager)mvelLifeCycleManager).setTaskQueryService(userGroupTaskQueryServiceDecorator);
+            ((MVELLifeCycleManager)mvelLifeCycleManager).setTaskContentService(contentService);
+            ((MVELLifeCycleManager)mvelLifeCycleManager).setTaskEvents(taskEvents);
+            ((MVELLifeCycleManager)mvelLifeCycleManager).setLogger(logger);
+            ((MVELLifeCycleManager)mvelLifeCycleManager).initMVELOperations();
+            
+            
+            UserGroupLifeCycleManagerDecorator userGroupLifeCycleDecorator = new UserGroupLifeCycleManagerDecorator();
+            userGroupLifeCycleDecorator.setPm(pm);
+            userGroupLifeCycleDecorator.setUserGroupCallback(userGroupCallback);
+            userGroupLifeCycleDecorator.setManager(mvelLifeCycleManager);
+            ((TaskInstanceServiceImpl)instanceService).setLifeCycleManager(userGroupLifeCycleDecorator);
+            
+            
+            TaskDeadlinesService deadlinesService = new TaskDeadlinesServiceImpl();
+            ((TaskDeadlinesServiceImpl)deadlinesService).setPm(pm);
+            ((TaskDeadlinesServiceImpl)deadlinesService).setLogger(logger);
+            ((TaskDeadlinesServiceImpl)deadlinesService).setNotificationEvents(notificationEvents);
+            ((TaskDeadlinesServiceImpl)deadlinesService).init();
+            
+            SubTaskDecorator subTaskDecorator = new SubTaskDecorator();
+            subTaskDecorator.setInstanceService(userGroupTaskInstanceDecorator);
+            subTaskDecorator.setPm(pm);
+            subTaskDecorator.setQueryService(userGroupTaskQueryServiceDecorator);
+            
+            DeadlinesDecorator deadlinesDecorator = new DeadlinesDecorator();
+            deadlinesDecorator.setPm(pm);
+            deadlinesDecorator.setQueryService(userGroupTaskQueryServiceDecorator);
+            deadlinesDecorator.setDeadlineService(deadlinesService);
+            deadlinesDecorator.setQueryService(userGroupTaskQueryServiceDecorator);
+            deadlinesDecorator.setInstanceService(subTaskDecorator);
+            
+            ((TaskServiceEntryPointImpl)taskService).setTaskInstanceService(deadlinesDecorator);
+
+    }
+    
     protected void clearHistory() {
         JPAProcessInstanceDbLog.clear();
     }

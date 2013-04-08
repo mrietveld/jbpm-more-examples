@@ -3,8 +3,9 @@ package org.jbpm.more.examples;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.drools.runtime.StatefulKnowledgeSession;
+import org.jbpm.more.examples.test.AbstractJbpmTest;
 import org.junit.Test;
+import org.kie.api.runtime.KieSession;
 
 import com.test.HandleExceptionServiceTaskHandler;
 import com.test.MyService;
@@ -16,7 +17,7 @@ public class CatchIntermediateErrorTest extends AbstractJbpmTest {
     @Test
     public void runthrowEscalationProcess() { 
         // Read in bpmn2
-        StatefulKnowledgeSession ksession = createKnowledgeSession("intermediate-throw-escalation-process.bpmn2");
+        KieSession ksession = createKnowledgeSession("intermediate-throw-escalation-process.bpmn2");
         
         // Setup session, handlers, etc. 
         ksession.getWorkItemManager().registerWorkItemHandler("Service Task", new HandleExceptionServiceTaskHandler());
