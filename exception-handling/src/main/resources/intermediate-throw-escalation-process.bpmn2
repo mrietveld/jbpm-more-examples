@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions id="throw-event-process-def" targetNamespace="http://www.omg.org/bpmn20" xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+  xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+  xmlns:drools="http://www.jboss.org/drools">
+
+  <itemDefinition id="_boolItem" structureRef="java.lang.Boolean" />
+
+  <itemDefinition id="_mapItem" structureRef="java.util.Map" />
+  <escalation id="exception-escalation" escalationCode="exception" structureRef="_mapItem" />
+
+  <message id="_serviceMessage" itemRef="_mapItem" />
+  <interface id="_serviceInterface" name="com.test.MyService">
+    <operation id="_serviceOperation" name="execute">
+      <inMessageRef>_serviceMessage</inMessageRef>
+    </operation>
+  </interface>
+
+  <message id="_exceptionMessage" itemRef="_mapItem" />
+  <interface id="_handlingServiceInterface" name="com.test.ExceptionService">
+    <operation id="_handlingServiceOperation" name="handleException">
+      <inMessageRef>_exceptionMessage</inMessageRef>
+    </operation>
+  </interface>
+
+  <process id="ErrorHandlerProcess" name="Example process for error handling" isExecutable="true">
+    <!-- process variables -->
+    <property id="serviceSuccess" itemSubjectRef="_boolItem" />
+    <property id="serviceInput" itemSubjectRef="_mapItem" />
+    <!--  <property id="boundaryEventOutput" itemSubjectRef="_exceptionItem" /> -->
+
+    <!-- main flow -->
+    <startEvent id="_1" name="start" />
+    <sequenceFlow id="_1-_2" sourceRef="_1" targetRef="_2" />
+    
+      <!-- set process var to false so we don't have to pass it as a param
+    <scriptTask id="_10" name="boolean-set">
+      <script>kcontext.setVariable("throwEx", false);</script>
+    </scriptTask>
+    <sequenceFlow id="_10-_2" sourceRef="_10" targetRef="_2" />
+ -->
+ 
+    <subProcess id="_2" name="service-subprocess">
+      <startEvent id="_2-1" name="StartSubProcess" />
+      <sequenceFlow id="_2-1-_2-2" sourceRef="_2-1" targetRef="_2-2" />
+
+      <serviceTask id="_2-2" name="Throw Exception" implementation="Other" operationRef="_serviceOperation">
+        <ioSpecification>
+          <dataInput id="_2-2_input" name="Parameter" />
+          <dataOutput id="_2-2_result" name="Result" />
+          <inputSet>
+            <dataInputRefs>_2-2_input</dataInputRefs>
+          </inputSet>
+          <outputSet>
+            <dataOutputRefs>_2-2_result</dataOutputRefs>
+          </outputSet>
+        </ioSpecification>
+        <dataInputAssociation>
+          <sourceRef>serviceInput</sourceRef>
+          <targetRef>_2-2_input</targetRef>
+        </dataInputAssociation>
+        <dataOutputAssociation>
+          <sourceRef>_2-2_result</sourceRef>
+          <targetRef>serviceSuccess</targetRef>
+        </dataOutputAssociation>
+      </serviceTask>
+      <sequenceFlow id="_2-2-_2-3" sourceRef="_2-2" targetRef="_2-3" />
+
+      <exclusiveGateway id="_2-3" name="Decision" default="_2-3-_2-6" gatewayDirection="Diverging" />
+      <sequenceFlow id="_2-3-_2-4" sourceRef="_2-3" targetRef="_2-4">
+        <conditionExpression xsi:type="tFormalExpression">return ! serviceSuccess</conditionExpression>
+      </sequenceFlow>
+      <sequenceFlow id="_2-3-_2-6" sourceRef="_2-3" targetRef="_2-6">
+        <!-- soon-to-be-fixed bug: default sequence flows still require conditions.. :/ -->
+        <conditionExpression xsi:type="tFormalExpression" />
+      </sequenceFlow>
+
+      <intermediateThrowEvent id="_2-4" name="ErrorEvent">
+        <dataInput id="_2-4_Input" name="ErrorContent" />
+        <dataInputAssociation>
+          <sourceRef>serviceInput</sourceRef>
+          <targetRef>_2-4_Input</targetRef>
+        </dataInputAssociation>
+        <inputSet>
+          <dataInputRefs>_2-4_Input</dataInputRefs>
+        </inputSet>
+        <escalationEventDefinition escalationRef="exception-escalation" />
+      </intermediateThrowEvent>
+      <sequenceFlow id="_2-4-_2-5" sourceRef="_2-4" targetRef="_2-5" />
+
+      <scriptTask id="_2-5" name="continue">
+        <script>System.out.println("This is only printed if we use escalations (and not errors)");</script>
+      </scriptTask>
+      <sequenceFlow id="_2-5-_2-11" sourceRef="_2-5" targetRef="_2-11" />
+
+      <endEvent id="_2-11" />
+
+      <endEvent id="_2-6" />
+    </subProcess>
+    <sequenceFlow id="_2-_3" sourceRef="_2" targetRef="_3" />
+
+    <endEvent id="_3" name="end" />
+
+    <!-- boundary event flow -->
+    <boundaryEvent id="_4" name="boundary-exception" attachedToRef="_2" cancelActivity="false">
+      <dataOutput id="_4-Output" name="ErrorMessage" />
+      <outputSet>
+        <dataOutputRefs>serviceInput</dataOutputRefs>
+      </outputSet>
+      <escalationEventDefinition id="boundary-escalation-event" escalationRef="exception-escalation" />
+    </boundaryEvent>
+    <sequenceFlow id="_4-_5" sourceRef="_4" targetRef="_5" />
+
+    <serviceTask id="_5" name="Handle Exception" implementation="Other" operationRef="_handlingServiceOperation">
+      <ioSpecification>
+        <dataInput id="_5_input" name="Parameter" />
+        <inputSet>
+          <dataInputRefs>_5_input</dataInputRefs>
+        </inputSet>
+        <outputSet />
+      </ioSpecification>
+      <dataInputAssociation>
+        <sourceRef>serviceInput</sourceRef>
+        <targetRef>_5_input</targetRef>
+      </dataInputAssociation>
+    </serviceTask>
+    <sequenceFlow id="_5-_6" sourceRef="_5" targetRef="_6" />
+
+    <endEvent id="_6" name="end" />
+  </process>
+
+</definitions>
