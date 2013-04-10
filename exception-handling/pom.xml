@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jbpm.more.examples</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1.5-SNAPSHOT</version>
+    <version>5.2-SNAPSHOT</version>
   </parent>
 
   <artifactId>exception-handling</artifactId>

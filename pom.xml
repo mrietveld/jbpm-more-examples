@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jbpm.more.examples</groupId>
   <artifactId>parent</artifactId>
-  <version>0.1.5-SNAPSHOT</version>
+  <version>5.2-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <name>More jBPM Examples :: 5.2.x</name>
