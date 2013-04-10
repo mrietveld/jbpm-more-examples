@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.jbpm.more.examples</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1.5-SNAPSHOT</version>
+    <version>0.1.5.4-SNAPSHOT</version>
   </parent>
 
   <artifactId>exception-handling</artifactId>
 
-  <name>More examples :: Exception handling :: 5.2.x</name>
+  <name>More examples :: Exception handling :: 5.4.x</name>
   <description>Examples showing how to do exception handling </description>
 
   <dependencies>
@@ -29,7 +29,7 @@
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-human-task</artifactId>
+      <artifactId>jbpm-human-task-core</artifactId>
     </dependency>
 
     <!-- logging -->

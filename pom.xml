@@ -4,16 +4,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.jbpm.more.examples</groupId>
   <artifactId>parent</artifactId>
-  <version>0.1.5-SNAPSHOT</version>
+  <version>0.1.5.4-SNAPSHOT</version>
   <packaging>pom</packaging>
 
-  <name>More jBPM Examples :: 5.2.x</name>
+  <name>More jBPM Examples :: 5.4.x</name>
   <description>Marco's jBPM examples</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jbpm.version>5.2.5.Final</jbpm.version>
-    <drools.version>5.3.5.Final</drools.version>
+    <jbpm.version>5.4.0.Final</jbpm.version>
+    <drools.version>5.5.0.Final</drools.version>
 
     <slf4j.version>1.6.0</slf4j.version>
 
@@ -81,7 +81,7 @@
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-human-task</artifactId>
+        <artifactId>jbpm-human-task-core</artifactId>
         <version>${jbpm.version}</version>
       </dependency>
       <dependency>

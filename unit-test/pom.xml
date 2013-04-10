@@ -6,15 +6,16 @@
   <parent>
     <groupId>org.jbpm.more.examples</groupId>
     <artifactId>parent</artifactId>
-    <version>0.1.5-SNAPSHOT</version>
+    <version>0.1.5.4-SNAPSHOT</version>
   </parent>
 
   <artifactId>unit-test</artifactId>
 
-  <name>More examples :: Unit test :: 5.2.x</name>
-  <description>Examples showing how to do exception handling </description>
+  <name>More examples :: Unit test</name>
+  <description>Utility classes for testing</description>
 
   <dependencies>
+    <!-- jbpm -->
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-bpmn2</artifactId>
@@ -29,7 +30,7 @@
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-human-task</artifactId>
+      <artifactId>jbpm-human-task-core</artifactId>
     </dependency>
 
     <!-- logging -->
@@ -77,6 +78,19 @@
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>test-jar</id>
+            <goals>
+              <goal>test-jar</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
