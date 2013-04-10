@@ -2,12 +2,24 @@
 
 This project contains examples of various jBPM processes (both 5 and 6). 
 
+### Examples
 At the moment, the project contains examples that show how to
 
 - handle exceptions in your (BPMN2) workflow using jBPM 
   - (see the [exception-handling](exception-handling) module)
 - use process variables in various ways 
   - (see the [process-variables](process-variables) module)
+
+### Versions of jBPM
+Examples for various branches are stored on *different branches* of this project. 
+
+For example, if you're looking for examples for the 5.4.x versions of jBPM, you can find them on the
+5.4.x branch of this project. 
+
+Currently, this project contains examples for the following versions of the jBPM: 
+- [6.0.x](.)
+- [5.4.x](../../tree/5.4.x)
+- [5.2.x](../../tree/5.2.x)
 
 # Getting Started
 
