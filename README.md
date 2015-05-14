@@ -7,8 +7,7 @@ At the moment, the project contains examples that show how to
 
 - handle exceptions in your (BPMN2) workflow using jBPM 
   - (see the [exception-handling](exception-handling) module)
-- use process variables in various ways 
-  - (see the [process-variables](process-variables) module)
+- modify an timer at runtime (dynamically)
 
 ### Versions of jBPM
 Examples for various branches are stored on *different branches* of this project. 
@@ -17,7 +16,7 @@ For example, if you're looking for examples for the 5.4.x versions of jBPM, you 
 5.4.x branch of this project. 
 
 Currently, this project contains examples for the following versions of the jBPM: 
-- [6.0.x](.)
+- [6.0.x](../../tree/6.0.x)
 - [5.4.x](../../tree/5.4.x)
 - [5.2.x](../../tree/5.2.x)
 
@@ -37,5 +36,3 @@ Currently, this project contains examples for the following versions of the jBPM
 - [CatchIntermediateEscalationTest](exception-handling/src/test/java/org/jbpm/more/examples/CatchIntermediateErrorTest.java)
   - Shows how to handle exceptions using a Throw Event in a SubProcess (to which a Boundary Event is
     attached.) 
-
-### Process Variables

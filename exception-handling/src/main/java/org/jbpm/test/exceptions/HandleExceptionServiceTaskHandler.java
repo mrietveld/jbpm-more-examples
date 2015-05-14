@@ -1,4 +1,4 @@
-package com.test;
+package org.jbpm.test.exceptions;
 
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -18,13 +18,13 @@ import org.slf4j.LoggerFactory;
  */
 public class HandleExceptionServiceTaskHandler implements WorkItemHandler {
 
-    public static final String FAILURE_SERVICE = "com.test.failure.service";
-    public static final String FAILURE_OPERATION = "com.test.failure.operation";
-    public static final String FAILURE_PARAMETER_TYPE = "com.test.failure.parameter.type";
+    public static final String FAILURE_SERVICE = "org.jbpm.test.exceptions.failure.service";
+    public static final String FAILURE_OPERATION = "org.jbpm.test.exceptions.failure.operation";
+    public static final String FAILURE_PARAMETER_TYPE = "org.jbpm.test.exceptions.failure.parameter.type";
     
-    public static final String FAILURE_EXCEPTION = "com.test.failure.exception";
-    public static final String FAILURE_REASON = "com.test.failure.reason";
-    public static final String FAILURE_TRACE = "com.test.failure.trace";
+    public static final String FAILURE_EXCEPTION = "org.jbpm.test.exceptions.failure.exception";
+    public static final String FAILURE_REASON = "org.jbpm.test.exceptions.failure.reason";
+    public static final String FAILURE_TRACE = "org.jbpm.test.exceptions.failure.trace";
 
     private static Logger logger = LoggerFactory.getLogger(HandleExceptionServiceTaskHandler.class);
 

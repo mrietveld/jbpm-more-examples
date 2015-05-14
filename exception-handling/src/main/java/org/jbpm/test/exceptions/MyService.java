@@ -1,10 +1,10 @@
-package com.test;
+package org.jbpm.test.exceptions;
 
 import java.util.Map;
 
 public class MyService {
 
-    public static final String MY_SERVICE_VAR = "com.test.MyService.input";
+    public static final String MY_SERVICE_VAR = "org.jbpm.test.exceptions.MyService.input";
     
 	public boolean execute(Map<String, Object> inputMap) {
 	    boolean success = false;

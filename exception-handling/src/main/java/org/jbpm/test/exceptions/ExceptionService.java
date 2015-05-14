@@ -1,4 +1,4 @@
-package com.test;
+package org.jbpm.test.exceptions;
 
 import java.util.Map;
 import java.util.Map.Entry;

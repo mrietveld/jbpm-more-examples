@@ -10,14 +10,14 @@
   <escalation id="exception-escalation" escalationCode="exception" structureRef="_mapItem" />
 
   <message id="_serviceMessage" itemRef="_mapItem" />
-  <interface id="_serviceInterface" name="com.test.MyService">
+  <interface id="_serviceInterface" name="org.jbpm.test.exceptions.MyService">
     <operation id="_serviceOperation" name="execute">
       <inMessageRef>_serviceMessage</inMessageRef>
     </operation>
   </interface>
 
   <message id="_exceptionMessage" itemRef="_mapItem" />
-  <interface id="_handlingServiceInterface" name="com.test.ExceptionService">
+  <interface id="_handlingServiceInterface" name="org.jbpm.test.exceptions.ExceptionService">
     <operation id="_handlingServiceOperation" name="handleException">
       <inMessageRef>_exceptionMessage</inMessageRef>
     </operation>

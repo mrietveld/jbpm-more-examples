@@ -4,15 +4,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jbpm.more.examples.test.AbstractJbpmTest;
+import org.jbpm.test.exceptions.HandleExceptionServiceTaskHandler;
+import org.jbpm.test.exceptions.MyService;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
 
-import com.test.HandleExceptionServiceTaskHandler;
-import com.test.MyService;
-
 public class CatchIntermediateErrorTest extends AbstractJbpmTest {
-
-    private static final String defaultLanguage = "en-UK";
 
     @Test
     public void runthrowEscalationProcess() { 
@@ -40,7 +37,7 @@ public class CatchIntermediateErrorTest extends AbstractJbpmTest {
          */   
         processParams.put("serviceInput", serviceInputmap);
         
-        // Run process
+        // Run process (and see system.out)
         ksession.startProcess("ErrorHandlerProcess", processParams);
     }
 
