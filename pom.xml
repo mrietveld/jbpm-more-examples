@@ -2,9 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+  
   <groupId>org.jbpm.more.examples</groupId>
   <artifactId>parent</artifactId>
-  <version>6.0-SNAPSHOT</version>
+  <version>6.0.0.Final</version>
   <packaging>pom</packaging>
 
   <name>More jBPM Examples</name>
@@ -12,7 +13,7 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <jbpm.version>6.0.0-SNAPSHOT</jbpm.version>
+    <jbpm.version>6.0.0.Final</jbpm.version>
     <drools.version>${jbpm.version}</drools.version>
     <kie.version>${jbpm.version}</kie.version>
 
@@ -34,6 +35,11 @@
       <dependency>
         <groupId>org.kie</groupId>
         <artifactId>kie-api</artifactId>
+        <version>${kie.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.kie</groupId>
+        <artifactId>kie-internal</artifactId>
         <version>${kie.version}</version>
       </dependency>
       
@@ -77,7 +83,7 @@
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-human-task-services</artifactId>
+        <artifactId>jbpm-human-task-core</artifactId>
         <version>${jbpm.version}</version>
       </dependency>
       <dependency>
@@ -87,12 +93,17 @@
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
-        <artifactId>jbpm-bam</artifactId>
+        <artifactId>jbpm-audit</artifactId>
         <version>${jbpm.version}</version>
       </dependency>
       <dependency>
         <groupId>org.jbpm</groupId>
         <artifactId>jbpm-persistence-jpa</artifactId>
+        <version>${jbpm.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.jbpm</groupId>
+        <artifactId>jbpm-test</artifactId>
         <version>${jbpm.version}</version>
       </dependency>
 
@@ -169,6 +180,7 @@
   <modules>
     <module>exception-handling</module>
     <module>process-variables</module>
+    <module>variable-persistence</module>
     <module>unit-test</module>
   </modules>
   

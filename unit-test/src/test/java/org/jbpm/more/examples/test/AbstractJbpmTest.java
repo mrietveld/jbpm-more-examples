@@ -14,8 +14,11 @@ import javax.transaction.Transaction;
 
 import org.drools.core.impl.EnvironmentFactory;
 import org.h2.tools.DeleteDbFiles;
-import org.jbpm.process.audit.JPAProcessInstanceDbLog;
-import org.jbpm.process.audit.JPAWorkingMemoryDbLogger;
+import org.jbpm.process.audit.AbstractAuditLogger;
+import org.jbpm.process.audit.AuditLogService;
+import org.jbpm.process.audit.AuditLoggerFactory;
+import org.jbpm.process.audit.AuditLoggerFactory.Type;
+import org.jbpm.process.audit.JPAAuditLogService;
 import org.jbpm.process.audit.NodeInstanceLog;
 import org.jbpm.services.task.deadlines.DeadlinesDecorator;
 import org.jbpm.services.task.identity.MvelUserGroupCallbackImpl;
@@ -53,6 +56,8 @@ import org.kie.api.runtime.process.NodeInstance;
 import org.kie.api.runtime.process.NodeInstanceContainer;
 import org.kie.api.runtime.process.ProcessInstance;
 import org.kie.api.runtime.process.WorkflowProcessInstance;
+import org.kie.api.task.TaskService;
+import org.kie.api.task.model.Task;
 import org.kie.internal.KnowledgeBaseFactory;
 import org.kie.internal.builder.KnowledgeBuilder;
 import org.kie.internal.builder.KnowledgeBuilderError;
@@ -66,10 +71,8 @@ import org.kie.internal.task.api.TaskDeadlinesService;
 import org.kie.internal.task.api.TaskIdentityService;
 import org.kie.internal.task.api.TaskInstanceService;
 import org.kie.internal.task.api.TaskQueryService;
-import org.kie.internal.task.api.TaskService;
 import org.kie.internal.task.api.UserGroupCallback;
 import org.kie.internal.task.api.model.NotificationEvent;
-import org.kie.internal.task.api.model.Task;
 
 import bitronix.tm.TransactionManagerServices;
 import bitronix.tm.resource.jdbc.PoolingDataSource;
@@ -89,6 +92,9 @@ public abstract class AbstractJbpmTest extends Assert {
 
     protected Logger logger = null;
     protected String dbFilename = "jbpm-test";
+    
+    private AbstractAuditLogger workingMemoryLogger = null;
+    private AuditLogService auditLogService = null;
 
     @Rule
     public TestName testName = new TestName();
@@ -118,10 +124,12 @@ public abstract class AbstractJbpmTest extends Assert {
         }
         ds = setupPoolingDataSource(dbFilename);
         emf = Persistence.createEntityManagerFactory("org.jbpm.persistence.jpa");
+        auditLogService = new JPAAuditLogService(emf);
     }
 
     @After
     public void tearDown() throws Exception {
+        auditLogService = null;
         if (emf != null) {
             emf.close();
             emf = null;
@@ -201,12 +209,18 @@ public abstract class AbstractJbpmTest extends Assert {
         ksession = JPAKnowledgeService.newStatefulKnowledgeSession(kbase, conf, env);
 
         // logging
-        new JPAWorkingMemoryDbLogger(ksession);
-        JPAProcessInstanceDbLog.setEnvironment(env);
-
+        createWorkingMemoryLogger(ksession);
+        
         return ksession;
     }
 
+    private AbstractAuditLogger createWorkingMemoryLogger(KieSession ksession) { 
+        if( workingMemoryLogger == null ) { 
+            workingMemoryLogger = AuditLoggerFactory.newInstance(Type.JPA, ksession, null);
+        }
+        return workingMemoryLogger;
+    }
+    
     protected KieSession createKnowledgeSession(String... bpmn2Filename) {
         KieBase kbase = createKnowledgeBase(bpmn2Filename);
         return createKnowledgeSession(kbase);
@@ -241,8 +255,7 @@ public abstract class AbstractJbpmTest extends Assert {
         StatefulKnowledgeSession ksession = JPAKnowledgeService.loadStatefulKnowledgeSession(id, kbase, config, env);
 
         // logging
-        new JPAWorkingMemoryDbLogger(ksession);
-        JPAProcessInstanceDbLog.setEnvironment(env);
+        createWorkingMemoryLogger(ksession);
 
         return ksession;
     }
@@ -320,7 +333,6 @@ public abstract class AbstractJbpmTest extends Assert {
             ((MVELLifeCycleManager)mvelLifeCycleManager).setTaskQueryService(userGroupTaskQueryServiceDecorator);
             ((MVELLifeCycleManager)mvelLifeCycleManager).setTaskContentService(contentService);
             ((MVELLifeCycleManager)mvelLifeCycleManager).setTaskEvents(taskEvents);
-            ((MVELLifeCycleManager)mvelLifeCycleManager).setLogger(logger);
             ((MVELLifeCycleManager)mvelLifeCycleManager).initMVELOperations();
             
             
@@ -333,7 +345,6 @@ public abstract class AbstractJbpmTest extends Assert {
             
             TaskDeadlinesService deadlinesService = new TaskDeadlinesServiceImpl();
             ((TaskDeadlinesServiceImpl)deadlinesService).setPm(pm);
-            ((TaskDeadlinesServiceImpl)deadlinesService).setLogger(logger);
             ((TaskDeadlinesServiceImpl)deadlinesService).setNotificationEvents(notificationEvents);
             ((TaskDeadlinesServiceImpl)deadlinesService).init();
             
@@ -354,7 +365,7 @@ public abstract class AbstractJbpmTest extends Assert {
     }
     
     protected void clearHistory() {
-        JPAProcessInstanceDbLog.clear();
+        auditLogService.clear();
     }
 
     public Object getVariableValue(String name, long processInstanceId, StatefulKnowledgeSession ksession) {
@@ -410,7 +421,7 @@ public abstract class AbstractJbpmTest extends Assert {
         for (String nodeName : nodeNames) {
             names.add(nodeName);
         }
-        List<NodeInstanceLog> logs = JPAProcessInstanceDbLog.findNodeInstances(processInstanceId);
+        List<NodeInstanceLog> logs = auditLogService.findNodeInstances(processInstanceId);
         if (logs != null) {
             for (NodeInstanceLog l : logs) {
                 String nodeName = l.getNodeName();

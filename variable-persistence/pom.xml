@@ -6,12 +6,12 @@
   <parent>
     <groupId>org.jbpm.more.examples</groupId>
     <artifactId>parent</artifactId>
-    <version>5.2-SNAPSHOT</version>
+    <version>6.0.0.Final</version>
   </parent>
 
   <artifactId>variable-persistence</artifactId>
 
-  <name>More examples :: Variable persistence :: 5.2.x</name>
+  <name>More examples :: Variable persistence</name>
   <description>Examples showing how to persist variables</description>
 
   <dependencies>
@@ -21,7 +21,7 @@
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-bam</artifactId>
+      <artifactId>jbpm-audit</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
@@ -29,20 +29,16 @@
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-human-task</artifactId>
-    </dependency>
-
-    <!-- logging -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
+      <artifactId>jbpm-human-task-core</artifactId>
     </dependency>
 
     <!-- test -->
+    <dependency>
+      <groupId>org.jbpm.more.examples</groupId>
+      <artifactId>unit-test</artifactId>
+      <type>test-jar</type>
+      <scope>test</scope>
+    </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

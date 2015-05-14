@@ -6,7 +6,7 @@
   <parent>
     <groupId>org.jbpm.more.examples</groupId>
     <artifactId>parent</artifactId>
-    <version>6.0-SNAPSHOT</version>
+    <version>6.0.0.Final</version>
   </parent>
 
   <artifactId>exception-handling</artifactId>
@@ -21,15 +21,11 @@
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-bam</artifactId>
+      <artifactId>jbpm-audit</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
       <artifactId>jbpm-persistence-jpa</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-human-task-services</artifactId>
     </dependency>
 
     <!-- logging -->

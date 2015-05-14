@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.omg.org/bpmn20"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_flowTypeItem" structureRef="String" />
+  <itemDefinition id="_codifTypeItem" structureRef="String" />
+  <itemDefinition id="_startGroupItem" structureRef="String" />
+  <itemDefinition id="_groupAssignItem" structureRef="String" />
+  <itemDefinition id="_userAssignItem" structureRef="String" />
+  <itemDefinition id="_requestorNameItem" structureRef="String" />
+  <itemDefinition id="_startDateItem" structureRef="String" />
+  <itemDefinition id="_endDateItem" structureRef="String" />
+  <itemDefinition id="_lineItem" structureRef="String" />
+  <itemDefinition id="_productCodesItem" structureRef="String" />
+  <itemDefinition id="_pEngLineItem" structureRef="String" />
+  <itemDefinition id="_formValidItem" structureRef="Boolean" />
+
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-flowTypeItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-codifTypeItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-startGroupItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-groupAssignItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-userAssignItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-requestorNameItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-startDateItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-endDateItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-lineItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-productCodesItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-pEngLineItem" structureRef="String" />
+  <itemDefinition id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-formValidItem" structureRef="Boolean" />
+
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-flowTypeItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-codifTypeItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-startGroupItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-groupAssignItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-userAssignItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-requestorNameItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-startDateItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-endDateItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-lineItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-productCodesItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-pEngLineItem" structureRef="String" />
+  <itemDefinition id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-formValidItem" structureRef="Boolean" />
+
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-flowTypeItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-codifTypeItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-startGroupItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-groupAssignItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-userAssignItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-requestorNameItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-startDateItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-endDateItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-lineItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-productCodesItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-pEngLineItem" structureRef="String" />
+  <itemDefinition id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-formValidItem" structureRef="Boolean" />
+
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-flowTypeItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-codifTypeItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-startGroupItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-groupAssignItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-userAssignItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-requestorNameItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-startDateItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-endDateItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-lineItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-productCodesItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-pEngLineItem" structureRef="String" />
+  <itemDefinition id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-formValidItem" structureRef="Boolean" />
+
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-flowTypeItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-codifTypeItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-startGroupItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-groupAssignItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-userAssignItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-requestorNameItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-startDateItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-endDateItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-lineItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-productCodesItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-pEngLineItem" structureRef="String" />
+  <itemDefinition id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-formValidItem" structureRef="Boolean" />
+
+  <process processType="Private" isExecutable="true" id="com.st.ams.flows.newfinishedgood" name="newfinishedgood" tns:packageName="com.st.ams.flows" >
+
+    <!-- process variables -->
+    <property id="flowId" itemSubjectRef="_flowIdItem"/>
+    <property id="flowType" itemSubjectRef="_flowTypeItem"/>
+    <property id="codifType" itemSubjectRef="_codifTypeItem"/>
+    <property id="startGroup" itemSubjectRef="_startGroupItem"/>
+    <property id="groupAssign" itemSubjectRef="_groupAssignItem"/>
+    <property id="userAssign" itemSubjectRef="_userAssignItem"/>
+    <property id="requestorName" itemSubjectRef="_requestorNameItem"/>
+    <property id="startDate" itemSubjectRef="_startDateItem"/>
+    <property id="endDate" itemSubjectRef="_endDateItem"/>
+    <property id="line" itemSubjectRef="_lineItem"/>
+    <property id="productCodes" itemSubjectRef="_productCodesItem"/>
+    <property id="pEngLine" itemSubjectRef="_pEngLineItem"/>
+    <property id="formValid" itemSubjectRef="_formValidItem"/>
+
+    <!-- nodes -->
+    <startEvent id="_382F1F3D-82F4-4071-82E1-3934443CEBDC" name="" />
+    <exclusiveGateway id="_9B98828A-3357-479F-8936-65A47FE82CE3" name="" gatewayDirection="Diverging" />
+    <userTask id="_2B5980A9-AC75-441E-98F6-51C4F38F703F" name="P_ENG_step" >
+      <ioSpecification>
+        <dataInput id="_2B5980A9-AC75-441E-98F6-51C4F38F703F_SkippableInput" name="Skippable" />
+        <dataInput id="_2B5980A9-AC75-441E-98F6-51C4F38F703F_TaskNameInput" name="TaskName" />
+        <dataInput id="_2B5980A9-AC75-441E-98F6-51C4F38F703F_GroupIdInput" name="GroupId" />
+        <dataOutput id="_2B5980A9-AC75-441E-98F6-51C4F38F703F_userAssignOutput" name="userAssign" />
+        <dataOutput id="_2B5980A9-AC75-441E-98F6-51C4F38F703F_groupAssignOutput" name="groupAssign" />
+        <inputSet>
+          <dataInputRefs>_2B5980A9-AC75-441E-98F6-51C4F38F703F_SkippableInput</dataInputRefs>
+          <dataInputRefs>_2B5980A9-AC75-441E-98F6-51C4F38F703F_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_2B5980A9-AC75-441E-98F6-51C4F38F703F_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_2B5980A9-AC75-441E-98F6-51C4F38F703F_userAssignOutput</dataOutputRefs>
+          <dataOutputRefs>_2B5980A9-AC75-441E-98F6-51C4F38F703F_groupAssignOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_2B5980A9-AC75-441E-98F6-51C4F38F703F_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_2B5980A9-AC75-441E-98F6-51C4F38F703F_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_2B5980A9-AC75-441E-98F6-51C4F38F703F_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">pEngStep</from>
+          <to xsi:type="tFormalExpression">_2B5980A9-AC75-441E-98F6-51C4F38F703F_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_2B5980A9-AC75-441E-98F6-51C4F38F703F_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{groupAssign}, AMS_CRW_ADMIN</from>
+          <to xsi:type="tFormalExpression">_2B5980A9-AC75-441E-98F6-51C4F38F703F_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_2B5980A9-AC75-441E-98F6-51C4F38F703F_userAssignOutput</sourceRef>
+        <targetRef>userAssign</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_2B5980A9-AC75-441E-98F6-51C4F38F703F_groupAssignOutput</sourceRef>
+        <targetRef>groupAssign</targetRef>
+      </dataOutputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{userAssign}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <userTask id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD" name="PO_BE_step" >
+      <ioSpecification>
+        <dataInput id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_SkippableInput" name="Skippable" />
+        <dataInput id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_TaskNameInput" name="TaskName" />
+        <dataInput id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_GroupIdInput" name="GroupId" />
+        <dataOutput id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_userAssignOutput" name="userAssign" />
+        <dataOutput id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_groupAssignOutput" name="groupAssign" />
+        <inputSet>
+          <dataInputRefs>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_SkippableInput</dataInputRefs>
+          <dataInputRefs>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_userAssignOutput</dataOutputRefs>
+          <dataOutputRefs>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_groupAssignOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">poBeStep</from>
+          <to xsi:type="tFormalExpression">_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{groupAssign}, AMS_CRW_ADMIN</from>
+          <to xsi:type="tFormalExpression">_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_userAssignOutput</sourceRef>
+        <targetRef>userAssign</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD_groupAssignOutput</sourceRef>
+        <targetRef>groupAssign</targetRef>
+      </dataOutputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{userAssign}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <exclusiveGateway id="_B99EA536-026B-483C-8EDD-30EA879EE311" name="" gatewayDirection="Diverging" />
+    <exclusiveGateway id="_3579C630-36DE-42FB-A323-EB3A5DE773DD" name="" gatewayDirection="Converging" />
+    <userTask id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722" name="PLAN_REVIEW_step" >
+      <ioSpecification>
+        <dataInput id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722_SkippableInput" name="Skippable" />
+        <dataInput id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722_TaskNameInput" name="TaskName" />
+        <dataInput id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722_GroupIdInput" name="GroupId" />
+        <dataOutput id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722_userAssignOutput" name="userAssign" />
+        <dataOutput id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722_groupAssignOutput" name="groupAssign" />
+        <inputSet>
+          <dataInputRefs>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_SkippableInput</dataInputRefs>
+          <dataInputRefs>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_userAssignOutput</dataOutputRefs>
+          <dataOutputRefs>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_groupAssignOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_18DBE299-E1FC-4552-8ED5-FFD4B4128722_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">planReviewStep</from>
+          <to xsi:type="tFormalExpression">_18DBE299-E1FC-4552-8ED5-FFD4B4128722_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{groupAssign}, AMS_CRW_ADMIN</from>
+          <to xsi:type="tFormalExpression">_18DBE299-E1FC-4552-8ED5-FFD4B4128722_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_userAssignOutput</sourceRef>
+        <targetRef>userAssign</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_18DBE299-E1FC-4552-8ED5-FFD4B4128722_groupAssignOutput</sourceRef>
+        <targetRef>groupAssign</targetRef>
+      </dataOutputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{userAssign}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <exclusiveGateway id="_B892D438-1433-4C03-9895-DFA4D64C0535" name="" gatewayDirection="Converging" />
+    <userTask id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6" name="CODIF_step" >
+      <ioSpecification>
+        <dataInput id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_SkippableInput" name="Skippable" />
+        <dataInput id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_TaskNameInput" name="TaskName" />
+        <dataInput id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_GroupIdInput" name="GroupId" />
+        <dataOutput id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_userAssignOutput" name="userAssign" />
+        <dataOutput id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_groupAssignOutput" name="groupAssign" />
+        <inputSet>
+          <dataInputRefs>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_SkippableInput</dataInputRefs>
+          <dataInputRefs>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_userAssignOutput</dataOutputRefs>
+          <dataOutputRefs>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_groupAssignOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">codifStep</from>
+          <to xsi:type="tFormalExpression">_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{groupAssign}, AMS_CRW_ADMIN</from>
+          <to xsi:type="tFormalExpression">_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_userAssignOutput</sourceRef>
+        <targetRef>userAssign</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6_groupAssignOutput</sourceRef>
+        <targetRef>groupAssign</targetRef>
+      </dataOutputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{userAssign}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <userTask id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5" name="P_ENG_VALIDATION_step" >
+      <ioSpecification>
+        <dataInput id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5_SkippableInput" name="Skippable" />
+        <dataInput id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5_TaskNameInput" name="TaskName" />
+        <dataInput id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5_GroupIdInput" name="GroupId" />
+        <dataOutput id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5_userAssignOutput" name="userAssign" />
+        <dataOutput id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5_groupAssignOutput" name="groupAssign" />
+        <dataOutput id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5_formValidOutput" name="formValid" />
+        <inputSet>
+          <dataInputRefs>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_SkippableInput</dataInputRefs>
+          <dataInputRefs>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_TaskNameInput</dataInputRefs>
+          <dataInputRefs>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_GroupIdInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+          <dataOutputRefs>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_userAssignOutput</dataOutputRefs>
+          <dataOutputRefs>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_groupAssignOutput</dataOutputRefs>
+          <dataOutputRefs>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_formValidOutput</dataOutputRefs>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_2708563F-0504-464B-9AE9-15AB0C9E7DB5_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">pEngValidationStep</from>
+          <to xsi:type="tFormalExpression">_2708563F-0504-464B-9AE9-15AB0C9E7DB5_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_GroupIdInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">#{groupAssign}, AMS_CRW_ADMIN</from>
+          <to xsi:type="tFormalExpression">_2708563F-0504-464B-9AE9-15AB0C9E7DB5_GroupIdInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_userAssignOutput</sourceRef>
+        <targetRef>userAssign</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_groupAssignOutput</sourceRef>
+        <targetRef>groupAssign</targetRef>
+      </dataOutputAssociation>
+      <dataOutputAssociation>
+        <sourceRef>_2708563F-0504-464B-9AE9-15AB0C9E7DB5_formValidOutput</sourceRef>
+        <targetRef>formValid</targetRef>
+      </dataOutputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{userAssign}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <exclusiveGateway id="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2" name="" gatewayDirection="Diverging" />
+    <endEvent id="_6E5135D5-BD08-466F-AF1C-C65C2DD9DDA6" name="" >
+        <terminateEventDefinition/>
+    </endEvent>
+    <exclusiveGateway id="_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" name="" gatewayDirection="Converging" />
+
+    <!-- connections -->
+    <sequenceFlow id="_382F1F3D-82F4-4071-82E1-3934443CEBDC-_9B98828A-3357-479F-8936-65A47FE82CE3" sourceRef="_382F1F3D-82F4-4071-82E1-3934443CEBDC" targetRef="_9B98828A-3357-479F-8936-65A47FE82CE3" />
+    <sequenceFlow id="_9B98828A-3357-479F-8936-65A47FE82CE3-_2B5980A9-AC75-441E-98F6-51C4F38F703F" sourceRef="_9B98828A-3357-479F-8936-65A47FE82CE3" targetRef="_2B5980A9-AC75-441E-98F6-51C4F38F703F" name="start by PLAN or PO_BE" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return (startGroup.equals("PLAN") || startGroup.equals("PO_BE"));</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A-_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD" sourceRef="_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" targetRef="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD" />
+    <sequenceFlow id="_2B5980A9-AC75-441E-98F6-51C4F38F703F-_B99EA536-026B-483C-8EDD-30EA879EE311" sourceRef="_2B5980A9-AC75-441E-98F6-51C4F38F703F" targetRef="_B99EA536-026B-483C-8EDD-30EA879EE311" />
+    <sequenceFlow id="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-_3579C630-36DE-42FB-A323-EB3A5DE773DD" sourceRef="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD" targetRef="_3579C630-36DE-42FB-A323-EB3A5DE773DD" />
+    <sequenceFlow id="_B99EA536-026B-483C-8EDD-30EA879EE311-_3579C630-36DE-42FB-A323-EB3A5DE773DD" sourceRef="_B99EA536-026B-483C-8EDD-30EA879EE311" targetRef="_3579C630-36DE-42FB-A323-EB3A5DE773DD" name="start by PO_BE" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return startGroup.equals("PO_BE");</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_3579C630-36DE-42FB-A323-EB3A5DE773DD-_18DBE299-E1FC-4552-8ED5-FFD4B4128722" sourceRef="_3579C630-36DE-42FB-A323-EB3A5DE773DD" targetRef="_18DBE299-E1FC-4552-8ED5-FFD4B4128722" />
+    <sequenceFlow id="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-_B892D438-1433-4C03-9895-DFA4D64C0535" sourceRef="_18DBE299-E1FC-4552-8ED5-FFD4B4128722" targetRef="_B892D438-1433-4C03-9895-DFA4D64C0535" />
+    <sequenceFlow id="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2-_B892D438-1433-4C03-9895-DFA4D64C0535" sourceRef="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2" targetRef="_B892D438-1433-4C03-9895-DFA4D64C0535" name="doc are not validated" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return !formValid;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_B892D438-1433-4C03-9895-DFA4D64C0535-_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6" sourceRef="_B892D438-1433-4C03-9895-DFA4D64C0535" targetRef="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6" />
+    <sequenceFlow id="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-_2708563F-0504-464B-9AE9-15AB0C9E7DB5" sourceRef="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6" targetRef="_2708563F-0504-464B-9AE9-15AB0C9E7DB5" />
+    <sequenceFlow id="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2" sourceRef="_2708563F-0504-464B-9AE9-15AB0C9E7DB5" targetRef="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2" />
+    <sequenceFlow id="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2-_6E5135D5-BD08-466F-AF1C-C65C2DD9DDA6" sourceRef="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2" targetRef="_6E5135D5-BD08-466F-AF1C-C65C2DD9DDA6" name="form and docs validated" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return formValid;</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_9B98828A-3357-479F-8936-65A47FE82CE3-_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" sourceRef="_9B98828A-3357-479F-8936-65A47FE82CE3" targetRef="_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" name="start by P_ENG" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return startGroup.equals("PO_ENG");</conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_B99EA536-026B-483C-8EDD-30EA879EE311-_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" sourceRef="_B99EA536-026B-483C-8EDD-30EA879EE311" targetRef="_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" name="start by PLAN" >
+      <conditionExpression xsi:type="tFormalExpression" language="http://www.java.com/java" >return startGroup.equals("PLAN");</conditionExpression>
+    </sequenceFlow>
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="com.st.ams.flows.newfinishedgood" >
+      <bpmndi:BPMNShape bpmnElement="_382F1F3D-82F4-4071-82E1-3934443CEBDC" >
+        <dc:Bounds x="186" y="176" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_9B98828A-3357-479F-8936-65A47FE82CE3" >
+        <dc:Bounds x="293" y="176" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2B5980A9-AC75-441E-98F6-51C4F38F703F" >
+        <dc:Bounds x="405" y="45" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD" >
+        <dc:Bounds x="525" y="345" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_B99EA536-026B-483C-8EDD-30EA879EE311" >
+        <dc:Bounds x="431" y="176" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3579C630-36DE-42FB-A323-EB3A5DE773DD" >
+        <dc:Bounds x="626" y="176" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_18DBE299-E1FC-4552-8ED5-FFD4B4128722" >
+        <dc:Bounds x="715" y="161" width="138" height="78" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_B892D438-1433-4C03-9895-DFA4D64C0535" >
+        <dc:Bounds x="894" y="176" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6" >
+        <dc:Bounds x="975" y="159" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2708563F-0504-464B-9AE9-15AB0C9E7DB5" >
+        <dc:Bounds x="1128" y="160" width="145" height="79" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2" >
+        <dc:Bounds x="1314" y="175" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6E5135D5-BD08-466F-AF1C-C65C2DD9DDA6" >
+        <dc:Bounds x="1518" y="174" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" >
+        <dc:Bounds x="431" y="361" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_382F1F3D-82F4-4071-82E1-3934443CEBDC-_9B98828A-3357-479F-8936-65A47FE82CE3" >
+        <di:waypoint x="210" y="200" />
+        <di:waypoint x="317" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9B98828A-3357-479F-8936-65A47FE82CE3-_2B5980A9-AC75-441E-98F6-51C4F38F703F" >
+        <di:waypoint x="317" y="200" />
+        <di:waypoint x="317" y="85" />
+        <di:waypoint x="455" y="85" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A-_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD" >
+        <di:waypoint x="455" y="385" />
+        <di:waypoint x="575" y="385" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2B5980A9-AC75-441E-98F6-51C4F38F703F-_B99EA536-026B-483C-8EDD-30EA879EE311" >
+        <di:waypoint x="455" y="85" />
+        <di:waypoint x="455" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_63FABEDA-AF8C-4EF3-9BDC-34FC4DA45FAD-_3579C630-36DE-42FB-A323-EB3A5DE773DD" >
+        <di:waypoint x="575" y="385" />
+        <di:waypoint x="650" y="385" />
+        <di:waypoint x="650" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_B99EA536-026B-483C-8EDD-30EA879EE311-_3579C630-36DE-42FB-A323-EB3A5DE773DD" >
+        <di:waypoint x="455" y="200" />
+        <di:waypoint x="650" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_3579C630-36DE-42FB-A323-EB3A5DE773DD-_18DBE299-E1FC-4552-8ED5-FFD4B4128722" >
+        <di:waypoint x="650" y="200" />
+        <di:waypoint x="784" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_18DBE299-E1FC-4552-8ED5-FFD4B4128722-_B892D438-1433-4C03-9895-DFA4D64C0535" >
+        <di:waypoint x="784" y="200" />
+        <di:waypoint x="918" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2-_B892D438-1433-4C03-9895-DFA4D64C0535" >
+        <di:waypoint x="1338" y="199" />
+        <di:waypoint x="1338" y="121" />
+        <di:waypoint x="918" y="121" />
+        <di:waypoint x="918" y="200" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_B892D438-1433-4C03-9895-DFA4D64C0535-_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6" >
+        <di:waypoint x="918" y="200" />
+        <di:waypoint x="1025" y="199" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_A2992EA0-2B2B-46C4-BA79-79911B8BBFA6-_2708563F-0504-464B-9AE9-15AB0C9E7DB5" >
+        <di:waypoint x="1025" y="199" />
+        <di:waypoint x="1200" y="199" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2708563F-0504-464B-9AE9-15AB0C9E7DB5-_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2" >
+        <di:waypoint x="1200" y="199" />
+        <di:waypoint x="1338" y="199" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_33B159B8-AA74-4C45-A07D-2E9A1F97A2B2-_6E5135D5-BD08-466F-AF1C-C65C2DD9DDA6" >
+        <di:waypoint x="1338" y="199" />
+        <di:waypoint x="1542" y="198" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9B98828A-3357-479F-8936-65A47FE82CE3-_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" >
+        <di:waypoint x="317" y="200" />
+        <di:waypoint x="317" y="385" />
+        <di:waypoint x="455" y="385" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_B99EA536-026B-483C-8EDD-30EA879EE311-_3A662E14-B931-4D77-9CAA-9ACED0D1BD5A" >
+        <di:waypoint x="455" y="200" />
+        <di:waypoint x="455" y="385" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>

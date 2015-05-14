@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<definitions id="Definition"
+             targetNamespace="http://www.jboss.org/drools"
+             typeLanguage="http://www.java.com/javaTypes"
+             expressionLanguage="http://www.mvel.org/2.0"
+             xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+             xmlns:g="http://www.jboss.org/drools/flow/gpd"
+             xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI"
+             xmlns:dc="http://www.omg.org/spec/DD/20100524/DC"
+             xmlns:di="http://www.omg.org/spec/DD/20100524/DI"
+             xmlns:tns="http://www.jboss.org/drools">
+
+  <itemDefinition id="_messageItem" structureRef="String" />
+  <itemDefinition id="_taskIdItem" structureRef="Integer" />
+  <itemDefinition id="_startDateItem" structureRef="String" />
+  <itemDefinition id="_flowTypeItem" structureRef="String" />
+  <itemDefinition id="_pEngLineItem" structureRef="String" />
+  <itemDefinition id="_productCodesItem" structureRef="String" />
+  <itemDefinition id="_groupAssignItem" structureRef="String" />
+  <itemDefinition id="_userAssignItem" structureRef="String" />
+  <itemDefinition id="_codifTypeItem" structureRef="String" />
+  <itemDefinition id="_requestorNameItem" structureRef="String" />
+  <itemDefinition id="_lineItem" structureRef="String" />
+  <itemDefinition id="_endDateItem" structureRef="String" />
+  <itemDefinition id="_flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_includeFlowTypeItem" structureRef="String" />
+
+  <itemDefinition id="_2-messageItem" structureRef="String" />
+  <itemDefinition id="_2-taskIdItem" structureRef="Integer" />
+  <itemDefinition id="_2-startDateItem" structureRef="String" />
+  <itemDefinition id="_2-flowTypeItem" structureRef="String" />
+  <itemDefinition id="_2-pEngLineItem" structureRef="String" />
+  <itemDefinition id="_2-productCodesItem" structureRef="String" />
+  <itemDefinition id="_2-groupAssignItem" structureRef="String" />
+  <itemDefinition id="_2-userAssignItem" structureRef="String" />
+  <itemDefinition id="_2-codifTypeItem" structureRef="String" />
+  <itemDefinition id="_2-requestorNameItem" structureRef="String" />
+  <itemDefinition id="_2-lineItem" structureRef="String" />
+  <itemDefinition id="_2-endDateItem" structureRef="String" />
+  <itemDefinition id="_2-flowIdItem" structureRef="Integer" />
+  <itemDefinition id="_2-includeFlowTypeItem" structureRef="String" />
+
+  <process processType="Private" isExecutable="true" id="com.st.ams.flows.datacorrections" name="DataCorrections" tns:packageName="com.st.ams.flows" >
+
+    <!-- process variables -->
+    <property id="message" itemSubjectRef="_messageItem"/>
+    <property id="taskId" itemSubjectRef="_taskIdItem"/>
+    <property id="startDate" itemSubjectRef="_startDateItem"/>
+    <property id="flowType" itemSubjectRef="_flowTypeItem"/>
+    <property id="pEngLine" itemSubjectRef="_pEngLineItem"/>
+    <property id="productCodes" itemSubjectRef="_productCodesItem"/>
+    <property id="groupAssign" itemSubjectRef="_groupAssignItem"/>
+    <property id="userAssign" itemSubjectRef="_userAssignItem"/>
+    <property id="codifType" itemSubjectRef="_codifTypeItem"/>
+    <property id="requestorName" itemSubjectRef="_requestorNameItem"/>
+    <property id="line" itemSubjectRef="_lineItem"/>
+    <property id="endDate" itemSubjectRef="_endDateItem"/>
+    <property id="flowId" itemSubjectRef="_flowIdItem"/>
+    <property id="includeFlowType" itemSubjectRef="_includeFlowTypeItem"/>
+
+    <!-- nodes -->
+    <startEvent id="_1" name="StartProcess" />
+    <userTask id="_2" name="correction" >
+      <ioSpecification>
+        <dataInput id="_2_CommentInput" name="Comment" />
+        <dataInput id="_2_SkippableInput" name="Skippable" />
+        <dataInput id="_2_TaskNameInput" name="TaskName" />
+        <inputSet>
+          <dataInputRefs>_2_CommentInput</dataInputRefs>
+          <dataInputRefs>_2_SkippableInput</dataInputRefs>
+          <dataInputRefs>_2_TaskNameInput</dataInputRefs>
+        </inputSet>
+        <outputSet>
+        </outputSet>
+      </ioSpecification>
+      <dataInputAssociation>
+        <targetRef>_2_CommentInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">You have to correct data</from>
+          <to xsi:type="tFormalExpression">_2_CommentInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_2_SkippableInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">false</from>
+          <to xsi:type="tFormalExpression">_2_SkippableInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <dataInputAssociation>
+        <targetRef>_2_TaskNameInput</targetRef>
+        <assignment>
+          <from xsi:type="tFormalExpression">correctionTask</from>
+          <to xsi:type="tFormalExpression">_2_TaskNameInput</to>
+        </assignment>
+      </dataInputAssociation>
+      <potentialOwner>
+        <resourceAssignmentExpression>
+          <formalExpression>#{userAssign}</formalExpression>
+        </resourceAssignmentExpression>
+      </potentialOwner>
+    </userTask>
+    <endEvent id="_3" name="End" >
+        <terminateEventDefinition/>
+    </endEvent>
+
+    <!-- connections -->
+    <sequenceFlow id="_1-_2" sourceRef="_1" targetRef="_2" />
+    <sequenceFlow id="_2-_3" sourceRef="_2" targetRef="_3" />
+
+  </process>
+
+  <bpmndi:BPMNDiagram>
+    <bpmndi:BPMNPlane bpmnElement="com.st.ams.flows.datacorrections" >
+      <bpmndi:BPMNShape bpmnElement="_1" >
+        <dc:Bounds x="144" y="217" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_2" >
+        <dc:Bounds x="252" y="216" width="100" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" >
+        <dc:Bounds x="415" y="217" width="48" height="48" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_1-_2" >
+        <di:waypoint x="168" y="241" />
+        <di:waypoint x="302" y="240" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_2-_3" >
+        <di:waypoint x="302" y="240" />
+        <di:waypoint x="439" y="241" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+
+</definitions>
