@@ -12,9 +12,8 @@
   <description>Marco's jBPM examples</description>
   
   <modules>
+    <module>dynamic-boundary-timer</module>
     <module>exception-handling</module>
-    <module>process-variables</module>
-    <module>variable-persistence</module>
     <module>task-service-service-task</module>
   </modules>
 
