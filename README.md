@@ -1,6 +1,6 @@
 # jbpm-more-examples
 
-This project contains examples of various jBPM processes (both 5 and 6). 
+This project contains examples of various jBPM processes for the 6.2.0.Final release.
 
 ### Examples
 At the moment, the project contains examples that show how to
@@ -17,7 +17,8 @@ For example, if you're looking for examples for the 5.4.x versions of jBPM, you 
 5.4.x branch of this project. 
 
 Currently, this project contains examples for the following versions of the jBPM: 
-- [6.0.x](.)
+- [6.2.x](.)
+- [6.0.x](../../tree/6.0.x)
 - [5.4.x](../../tree/5.4.x)
 - [5.2.x](../../tree/5.2.x)
 
@@ -38,4 +39,5 @@ Currently, this project contains examples for the following versions of the jBPM
   - Shows how to handle exceptions using a Throw Event in a SubProcess (to which a Boundary Event is
     attached.) 
 
-### Process Variables
+### Dynamic modification of timers
+
