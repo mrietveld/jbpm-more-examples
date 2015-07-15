@@ -45,9 +45,8 @@
 
     <!-- test -->
     <dependency>
-      <groupId>org.jbpm.more.examples</groupId>
-      <artifactId>unit-test</artifactId>
-      <type>test-jar</type>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-test</artifactId>
       <scope>test</scope>
     </dependency>
     <dependency>

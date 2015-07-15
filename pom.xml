@@ -10,6 +10,13 @@
 
   <name>More jBPM Examples</name>
   <description>Marco's jBPM examples</description>
+  
+  <modules>
+    <module>exception-handling</module>
+    <module>process-variables</module>
+    <module>variable-persistence</module>
+    <module>task-service-service-task</module>
+  </modules>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -177,12 +184,7 @@
     </dependencies>
   </dependencyManagement>
 
-  <modules>
-    <module>exception-handling</module>
-    <module>process-variables</module>
-    <module>variable-persistence</module>
-    <module>unit-test</module>
-  </modules>
+  
   
   <build>
     <plugins>
