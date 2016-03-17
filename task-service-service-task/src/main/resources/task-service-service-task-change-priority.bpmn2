@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmn20="http://www.omg.org/bpmn20" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xmlns:ns="http://www.w3.org/2001/XMLSchema" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="_ghYH8BcZEeOJu7pC4Ruiyg" exporter="org.eclipse.bpmn2.modeler.core" exporterVersion="1.2.0.201506101742" targetNamespace="http://www.omg.org/bpmn20">
+
+  <bpmn2:itemDefinition id="_longItem" isCollection="false" structureRef="java.lang.Long"/>
+  <bpmn2:itemDefinition id="_stringItem" isCollection="false" structureRef="java.lang.String"/>
+
+  <bpmn2:process id="ChangeTaskPrioProcess" drools:packageName="demo" name="ChangeTaskPrioProcess" isExecutable="true">
+
+    <property id="procInstId" itemSubjectRef="_longItem" />
+    <property id="userId" itemSubjectRef="_stringItem" />
+    
+    <bpmn2:startEvent id="_start" drools:bgcolor="#9acd32" drools:selectable="true" name="start" />
+    <bpmn2:sequenceFlow id="_start-_setProcInstId" drools:priority="1" sourceRef="_start" targetRef="_setProcInstId"/>
+
+    <bpmn2:scriptTask id="_setProcInstId" name="Set Process Instance Id" scriptFormat="http://www.java.com/java">
+      <bpmn2:script>kcontext.setVariable(&quot;procInstId&quot;, kcontext.getProcessInstance().getId());</bpmn2:script>
+    </bpmn2:scriptTask>
+    <bpmn2:sequenceFlow id="_start-_fork" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_setProcInstId" targetRef="_fork"/>
+
+    <bpmn2:parallelGateway id="_fork" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" name="" gatewayDirection="Diverging" />
+    <bpmn2:sequenceFlow id="_fork-_wrongPrioTask" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_fork" targetRef="_wrongPrioTask"/>
+    <bpmn2:sequenceFlow id="_fork-_timerEvent" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_fork" targetRef="_timerEvent"/>
+
+    <bpmn2:task id="_wrongPrioTask" drools:selectable="true" drools:taskName="task1" name="Wrong Prio Task">
+      <bpmn2:ioSpecification id="_ghYH8RcZEeOJu7pC4Ruiyg">
+        <bpmn2:dataInput id="_wrongPrioTask_TaskNameInput" name="TaskName"/>
+        <bpmn2:inputSet id="_ghYH8hcZEeOJu7pC4Ruiyg"/>
+        <bpmn2:outputSet id="_ghYH8xcZEeOJu7pC4Ruiyg"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_ghYH9BcZEeOJu7pC4Ruiyg">
+        <bpmn2:targetRef>_wrongPrioTask_TaskNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_ghYH9RcZEeOJu7pC4Ruiyg">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ghYH9hcZEeOJu7pC4Ruiyg">task1</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ghYH9xcZEeOJu7pC4Ruiyg">_wrongPrioTask_TaskNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_wrongPrioTask-_join" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_wrongPrioTask" targetRef="_join"/>
+
+    <bpmn2:intermediateCatchEvent id="_timerEvent" drools:bgcolor="#f5deb3" drools:selectable="true" drools:bordercolor="#008cec" drools:boundaryca="false" name="Wait for task creation">
+      <bpmn2:timerEventDefinition id="_ghYvBxcZEeOJu7pC4Ruiyg">
+        <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression" id="_ghYvCBcZEeOJu7pC4Ruiyg">2s</bpmn2:timeDuration>
+      </bpmn2:timerEventDefinition>
+    </bpmn2:intermediateCatchEvent>
+    <bpmn2:sequenceFlow id="_timerEvent-_changePrio" drools:priority="1" sourceRef="_timerEvent" targetRef="_changePrio"/>
+
+    <bpmn2:serviceTask id="_changePrio" name="Change Task Prio" implementation="Java" operationRef="_serviceOperation">
+      <bpmn2:ioSpecification id="InputOutputSpecification_changePrio">
+        <bpmn2:dataInput id="DataInput_changePrio" name="input1"/>
+        <bpmn2:inputSet id="InputSet_changePrio">
+          <bpmn2:dataInputRefs>DataInput_changePrio</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_changePrio"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_changePrio">
+        <bpmn2:targetRef>DataInput_changePrio</bpmn2:targetRef>
+        <bpmn2:assignment id="_Assignment_changePrio">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_changePrio_proc_from">procInstId</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_changePrio_proc_to">procInstId_input</bpmn2:to>
+        </bpmn2:assignment>
+        <bpmn2:assignment id="Assignment_start">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_changePrio_proc_user">userId</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_changePrio_user">userId_input</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:serviceTask>
+    <bpmn2:sequenceFlow id="_changePrio-_join" drools:priority="1" sourceRef="_changePrio" targetRef="_join"/>
+
+    <bpmn2:parallelGateway id="_join" drools:bgcolor="#f0e68c" drools:selectable="true" drools:bordercolor="#a67f00" name="" gatewayDirection="Converging" />
+    <bpmn2:sequenceFlow id="_join-_checkProcess" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_join" targetRef="_checkProcess"/>
+
+    <bpmn2:task id="_checkProcess" drools:selectable="true" drools:taskName="task2" name="Check Process">
+      <bpmn2:ioSpecification id="_ghYH-BcZEeOJu7pC4Ruiyg">
+        <bpmn2:dataInput id="_checkProcess_TaskNameInput" name="TaskName"/>
+        <bpmn2:inputSet id="_ghYvABcZEeOJu7pC4Ruiyg"/>
+        <bpmn2:outputSet id="_ghYvARcZEeOJu7pC4Ruiyg"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="_ghYvAhcZEeOJu7pC4Ruiyg">
+        <bpmn2:targetRef>_checkProcess_TaskNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="_ghYvAxcZEeOJu7pC4Ruiyg">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_ghYvBBcZEeOJu7pC4Ruiyg">task2</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_ghYvBRcZEeOJu7pC4Ruiyg">_checkProcess_TaskNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_checkProcess-_end" drools:bgcolor="#000000" drools:selectable="true" sourceRef="_checkProcess" targetRef="_end"/>
+
+    <bpmn2:endEvent id="_end" drools:bgcolor="#ff6347" drools:selectable="true" name="end">
+      <bpmn2:terminateEventDefinition id="_ghYvBhcZEeOJu7pC4Ruiyg"/>
+    </bpmn2:endEvent>
+  </bpmn2:process>
+
+  <bpmndi:BPMNDiagram id="BPMNDiagram_start">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_start" bpmnElement="ChangeTaskPrioProcess">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_start" bpmnElement="_start">
+        <dc:Bounds height="36.0" width="36.0" x="21.0" y="125.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start">
+          <dc:Bounds height="14.0" width="24.0" x="27.0" y="161.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_start" bpmnElement="_fork" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="280.0" y="118.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_fork"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_start" bpmnElement="_wrongPrioTask">
+        <dc:Bounds height="50.0" width="110.0" x="380.0" y="75.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_wrongPrioTask">
+          <dc:Bounds height="14.0" width="91.0" x="389.0" y="93.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_IntermediateCatchEvent_start" bpmnElement="_timerEvent">
+        <dc:Bounds height="36.0" width="36.0" x="334.0" y="181.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_timerEvent">
+          <dc:Bounds height="28.0" width="78.0" x="313.0" y="217.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ParallelGateway_fork" bpmnElement="_join" isMarkerVisible="true">
+        <dc:Bounds height="50.0" width="50.0" x="540.0" y="118.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_join"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_fork" bpmnElement="_checkProcess">
+        <dc:Bounds height="50.0" width="110.0" x="640.0" y="118.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_checkProcess">
+          <dc:Bounds height="14.0" width="84.0" x="653.0" y="136.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_start" bpmnElement="_end">
+        <dc:Bounds height="36.0" width="36.0" x="800.0" y="125.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_end">
+          <dc:Bounds height="14.0" width="21.0" x="807.0" y="161.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape__setProcInstId" bpmnElement="_setProcInstId">
+        <dc:Bounds height="50.0" width="110.0" x="120.0" y="118.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9">
+          <dc:Bounds height="28.0" width="76.0" x="137.0" y="129.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape__changePrio" bpmnElement="_changePrio">
+        <dc:Bounds height="50.0" width="110.0" x="414.0" y="174.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1">
+          <dc:Bounds height="14.0" width="99.0" x="419.0" y="192.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_start" bpmnElement="_start-_fork" sourceElement="BPMNShape__setProcInstId" targetElement="BPMNShape_ParallelGateway_start">
+        <di:waypoint xsi:type="dc:Point" x="230.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="255.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="280.0" y="143.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_9"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge__start-_setProcInstId" bpmnElement="_fork-_wrongPrioTask" sourceElement="BPMNShape_ParallelGateway_start" targetElement="BPMNShape_Task_start">
+        <di:waypoint xsi:type="dc:Point" x="305.0" y="118.0"/>
+        <di:waypoint xsi:type="dc:Point" x="305.0" y="100.0"/>
+        <di:waypoint xsi:type="dc:Point" x="380.0" y="100.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_wrongPrioTask" bpmnElement="_fork-_timerEvent" sourceElement="BPMNShape_ParallelGateway_start" targetElement="BPMNShape_IntermediateCatchEvent_start">
+        <di:waypoint xsi:type="dc:Point" x="305.0" y="168.0"/>
+        <di:waypoint xsi:type="dc:Point" x="305.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="334.0" y="199.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start1"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_timerEvent" bpmnElement="_wrongPrioTask-_join" sourceElement="BPMNShape_Task_start" targetElement="BPMNShape_ParallelGateway_fork">
+        <di:waypoint xsi:type="dc:Point" x="490.0" y="100.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="100.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="118.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start2"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_join" sourceElement="BPMNShape__changePrio" targetElement="BPMNShape_ParallelGateway_fork">
+        <di:waypoint xsi:type="dc:Point" x="524.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="168.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start3"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_checkProcess" bpmnElement="_join-_checkProcess" sourceElement="BPMNShape_ParallelGateway_fork" targetElement="BPMNShape_Task_fork">
+        <di:waypoint xsi:type="dc:Point" x="590.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="615.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="640.0" y="143.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start4"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_end" bpmnElement="_checkProcess-_end" sourceElement="BPMNShape_Task_fork" targetElement="BPMNShape_EndEvent_start">
+        <di:waypoint xsi:type="dc:Point" x="750.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="775.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="800.0" y="143.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start5"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" sourceElement="BPMNShape_IntermediateCatchEvent_start" targetElement="BPMNShape__changePrio">
+        <di:waypoint xsi:type="dc:Point" x="370.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="404.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="404.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="414.0" y="199.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start6"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="_start-_setProcInstId" sourceElement="BPMNShape_StartEvent_start" targetElement="BPMNShape__setProcInstId">
+        <di:waypoint xsi:type="dc:Point" x="57.0" y="143.0"/>
+        <di:waypoint xsi:type="dc:Point" x="120.0" y="143.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_start7"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge__timerEvent-_changePrio" bpmnElement="_timerEvent-_changePrio" sourceElement="BPMNShape_IntermediateCatchEvent_start" targetElement="BPMNShape__changePrio">
+        <di:waypoint xsi:type="dc:Point" x="370.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="392.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="414.0" y="199.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge__changePrio-_join" bpmnElement="_changePrio-_join" sourceElement="BPMNShape__changePrio" targetElement="BPMNShape_ParallelGateway_fork">
+        <di:waypoint xsi:type="dc:Point" x="524.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="199.0"/>
+        <di:waypoint xsi:type="dc:Point" x="565.0" y="168.0"/>
+        <bpmndi:BPMNLabel/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

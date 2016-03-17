@@ -9,24 +9,29 @@
     <version>6.3.0.Final</version>
   </parent>
 
-  <artifactId>exception-handling</artifactId>
+  <artifactId>variable-persistence</artifactId>
 
-  <name>More examples :: Exception handling</name>
-  <description>Examples showing how to do exception handling </description>
+  <name>More examples :: Variable persistence</name>
+  <description>Examples showing how to persist variables</description>
 
   <dependencies>
-    <!-- KIE/jBPM/drools -->
     <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-api</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-bpmn2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-audit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-persistence-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-human-task-core</artifactId>
     </dependency>
 
-    <!-- logging -->
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-    
     <!-- test -->
     <dependency>
       <groupId>org.jbpm</groupId>

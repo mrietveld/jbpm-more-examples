@@ -9,16 +9,28 @@
     <version>6.3.0.Final</version>
   </parent>
 
-  <artifactId>exception-handling</artifactId>
+  <artifactId>dynamic-boundary-timer</artifactId>
 
   <name>More examples :: Exception handling</name>
   <description>Examples showing how to do exception handling </description>
 
   <dependencies>
-    <!-- KIE/jBPM/drools -->
     <dependency>
-      <groupId>org.kie</groupId>
-      <artifactId>kie-api</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-test</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-bpmn2</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-audit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-persistence-jpa</artifactId>
     </dependency>
 
     <!-- logging -->
@@ -26,7 +38,11 @@
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
     </dependency>
-    
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+    </dependency>
+
     <!-- test -->
     <dependency>
       <groupId>org.jbpm</groupId>
