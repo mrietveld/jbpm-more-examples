@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- origin at X=0.0 Y=0.0 -->
+<definitions 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" 
+    xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" 
+    xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" 
+    xmlns:di="http://www.omg.org/spec/DD/20100524/DI" 
+    xmlns:drools="http://www.jboss.org/drools" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd"
+    id="throw-event-process-def" 
+    exporter="org.eclipse.bpmn2.modeler.core" 
+    exporterVersion="1.2.3.CR2-v20160209-2002" 
+    targetNamespace="http://www.omg.org/bpmn20">
+    
+  <itemDefinition id="_stringItem" isCollection="false" structureRef="java.lang.String"/>
+  <itemDefinition id="_longItem" isCollection="false" structureRef="java.lang.Long"/>
+  
+  <process id="org.jbpm.more.workitem.recovery" name="Example process for workitem recovery" isExecutable="true">
+ 
+    <!-- process variables -->
+    <property id="deploymentId" itemSubjectRef="_stringItem"/>
+    <property id="procInstId" itemSubjectRef="_longItem"/>
+    <property id="nodeId" itemSubjectRef="_longItem"/>
+  
+    <startEvent id="_1" name="start">
+      <outgoing>_1-_2</outgoing>
+    </startEvent>
+    <sequenceFlow id="_1-_2" sourceRef="_1" targetRef="_2-2"/>
+    <task id="_2-2" name="Recover WorkItem" drools:taskName="Recovery">
+      <ioSpecification id="InputOutputSpecification_1">
+        <dataInput id="_2-2_input-1" name="RecoveryDeploymentId"/>
+        <dataInput id="_2-2_input-2" name="RecoveryProcInstId"/>
+        <dataInput id="_2-2_input-3" name="RecoveryNodeId"/>
+        <dataOutput id="_2-2_result" name="Result"/>
+        <inputSet id="InputSet_1">
+          <dataInputRefs>_2-2_input-1</dataInputRefs>
+          <dataInputRefs>_2-2_input-2</dataInputRefs>
+          <dataInputRefs>_2-2_input-3</dataInputRefs>
+        </inputSet>
+      </ioSpecification>
+      <dataInputAssociation id="DataInputAssociation_1">
+        <sourceRef>deploymentId</sourceRef>
+        <targetRef>_2-2_input-1</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_1">
+        <sourceRef>procInstId</sourceRef>
+        <targetRef>_2-2_input-2</targetRef>
+      </dataInputAssociation>
+      <dataInputAssociation id="DataInputAssociation_1">
+        <sourceRef>nodeId</sourceRef>
+        <targetRef>_2-2_input-3</targetRef>
+      </dataInputAssociation>
+    </task>
+    <sequenceFlow id="_2-_3" sourceRef="_2-2" targetRef="_3"/>
+    <endEvent id="_3" name="end">
+      <incoming>_2-_3</incoming>
+    </endEvent>
+    <property id="deploymentId" itemSubjectRef="_stringItem"/>
+    <property id="procInstId" itemSubjectRef="_stringItem"/>
+    <property id="nodeId" itemSubjectRef="_stringItem"/>
+    <property id="serviceInput" itemSubjectRef="_mapItem"/>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="org.jbpm.more.workitem.recovery">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_1">
+        <dc:Bounds height="36.0" width="36.0" x="50.0" y="57.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_1" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="14.0" width="24.0" x="56.0" y="93.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ServiceTask_1" bpmnElement="_2-2">
+        <dc:Bounds height="50.0" width="110.0" x="136.0" y="50.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_2" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="14.0" width="100.0" x="141.0" y="68.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_3">
+        <dc:Bounds height="36.0" width="36.0" x="296.0" y="57.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_3" labelStyle="BPMNLabelStyle_1">
+          <dc:Bounds height="14.0" width="21.0" x="303.0" y="93.0"/>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="_1-_2" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_ServiceTask_1">
+        <di:waypoint xsi:type="dc:Point" x="86.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="111.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="136.0" y="75.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_4"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="_2-_3" sourceElement="BPMNShape_ServiceTask_1" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="246.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="271.0" y="75.0"/>
+        <di:waypoint xsi:type="dc:Point" x="296.0" y="75.0"/>
+        <bpmndi:BPMNLabel id="BPMNLabel_5"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+    <bpmndi:BPMNLabelStyle id="BPMNLabelStyle_1">
+      <dc:Font name="arial" size="9.0"/>
+    </bpmndi:BPMNLabelStyle>
+  </bpmndi:BPMNDiagram>
+</definitions>

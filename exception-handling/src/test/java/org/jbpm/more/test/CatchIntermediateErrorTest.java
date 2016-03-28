@@ -8,15 +8,18 @@ import org.jbpm.more.BrokenService;
 import org.jbpm.test.JbpmJUnitBaseTestCase;
 import org.junit.Test;
 import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.manager.RuntimeEngine;
 import org.kie.api.runtime.manager.RuntimeManager;
 
 public class CatchIntermediateErrorTest extends JbpmJUnitBaseTestCase {
+
 
     @Test
     public void runthrowEscalationProcess() {
         // Read in bpmn2
         RuntimeManager runtimeManager = createRuntimeManager("intermediate-throw-escalation-process.bpmn2");
-        KieSession ksession = runtimeManager.getRuntimeEngine(null).getKieSession();
+        RuntimeEngine runtime = runtimeManager.getRuntimeEngine(null);
+        KieSession ksession = runtime.getKieSession();
 
         // Setup session, handlers, etc.
         ksession.getWorkItemManager().registerWorkItemHandler("Service Task", new HandleExceptionServiceTaskHandler());
@@ -41,6 +44,12 @@ public class CatchIntermediateErrorTest extends JbpmJUnitBaseTestCase {
 
         // Run process
         ksession.startProcess("ErrorHandlerProcess", processParams);
+
+        // See output
+
+        // clean-up
+        runtimeManager.disposeRuntimeEngine(runtime);
+        runtimeManager.close();
     }
 
 }

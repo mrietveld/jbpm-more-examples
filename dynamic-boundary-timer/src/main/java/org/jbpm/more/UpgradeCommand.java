@@ -15,18 +15,20 @@ import org.jbpm.workflow.instance.node.HumanTaskNodeInstance;
 import org.kie.api.runtime.KieSession;
 import org.kie.api.runtime.process.NodeInstance;
 
-public class UpgradeCommand implements GenericCommand<Object> {
+public class UpgradeCommand implements GenericCommand<Void> {
 	private static final long serialVersionUID = 1L;
-	
-	private long processInstanceId;
-	
-	public UpgradeCommand(long processInstanceId) {
+
+	private final long processInstanceId;
+	private final long newDelay;
+
+	public UpgradeCommand(long processInstanceId, long newDelayInMs) {
 		this.processInstanceId = processInstanceId;
+		this.newDelay = newDelayInMs;
 	}
-	
-	public Object execute(org.kie.internal.command.Context context) {
+
+	public Void execute(org.kie.internal.command.Context context) {
 		KieSession ksession = ((KnowledgeCommandContext) context).getKieSession();
-		RuleFlowProcessInstance wfp = (RuleFlowProcessInstance) 
+		RuleFlowProcessInstance wfp = (RuleFlowProcessInstance)
 			ksession.getProcessInstance(processInstanceId);
 		HumanTaskNodeInstance taskNodeInstance = null;
 		for (NodeInstance nodeInstance: wfp.getNodeInstances()) {
@@ -44,8 +46,8 @@ public class UpgradeCommand implements GenericCommand<Object> {
 			TimerInstance newTimerInstance = new TimerInstance();
 			long timePassed = new Date().getTime() - oldTimerInstance.getActivated().getTime();
 			// wait 25 second (minus time already passed)
-			newTimerInstance.setDelay(25000 - timePassed);
-			System.out.println("Setting timer delay " + newTimerInstance.getDelay());
+			newTimerInstance.setDelay(newDelay - timePassed);
+			System.out.println("Setting timer delay to " + newTimerInstance.getDelay() + " ms");
 			newTimerInstance.setPeriod(0);
 			newTimerInstance.setTimerId(oldTimerInstance.getTimerId());
 			timerManager.registerTimer(newTimerInstance, wfp);

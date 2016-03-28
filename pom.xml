@@ -26,6 +26,7 @@
     <module>variable-persistence</module>
     <module>dynamic-boundary-timer</module>
     <module>task-service-service-task</module>
+    <module>workitem-recovery</module>
   </modules>
   
   <build>

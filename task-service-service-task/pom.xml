@@ -15,27 +15,28 @@
   <description>Examples showing how to use a ServiceTask node to use a TaskService</description>
 
   <dependencies>
+    <!--  KIE/jBPM/Drools -->
     <dependency>
-      <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-bpmn2</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-internal</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.drools</groupId>
+      <artifactId>drools-core</artifactId>
     </dependency>
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-audit</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-persistence-jpa</artifactId>
+      <artifactId>jbpm-runtime-manager</artifactId>
     </dependency>
 
     <!-- logging -->
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
     </dependency>
 
     <!-- test -->

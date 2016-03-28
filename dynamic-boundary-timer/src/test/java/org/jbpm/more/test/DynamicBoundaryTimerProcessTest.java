@@ -19,18 +19,22 @@ public class DynamicBoundaryTimerProcessTest extends JbpmJUnitBaseTestCase {
 		RuntimeEngine engine = getRuntimeEngine(null);
 		KieSession ksession = engine.getKieSession();
 
+		// Original timer duration is 8 seconds
 		ProcessInstance processInstance = ksession.startProcess("com.sample.bpmn.hello");
 		System.out.println("Started process instance " + processInstance.getId());
 
-		ksession.execute(new UpgradeCommand(processInstance.getId()));
+		// Upgrade to 3 seconds
+		long newSleep = 3;
+		ksession.execute(new UpgradeCommand(processInstance.getId(), newSleep*1000));
 
-		Thread.sleep(15000);
+		// Sleep 3
+		Thread.sleep(newSleep*1000);
+		System.out.println("Waited " + newSleep + "s ...");
 
-		System.out.println("Waited 15s ...");
+		ProcessInstance procInst = ksession.getProcessInstance(processInstance.getId());
+		assertTrue( "The process should have completed earlier than initially planned..",
+		        procInst == null || procInst.getState() == ProcessInstance.STATE_COMPLETED);
 
-		Thread.sleep(15000);
-
-		System.out.println("Waited 30s ...");
 		manager.disposeRuntimeEngine(engine);
 		manager.close();
 	}

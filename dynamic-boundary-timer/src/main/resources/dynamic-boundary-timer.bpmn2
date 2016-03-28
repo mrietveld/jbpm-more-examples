@@ -79,7 +79,7 @@
     <bpmn2:boundaryEvent id="BoundaryEvent_1" name="" attachedToRef="UserTask_1">
       <bpmn2:outgoing>SequenceFlow_4</bpmn2:outgoing>
       <bpmn2:timerEventDefinition id="TimerEventDefinition_1">
-        <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">10s</bpmn2:timeDuration>
+        <bpmn2:timeDuration xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">8s</bpmn2:timeDuration>
       </bpmn2:timerEventDefinition>
     </bpmn2:boundaryEvent>
     <bpmn2:sequenceFlow id="SequenceFlow_4" tns:priority="1" sourceRef="BoundaryEvent_1" targetRef="ScriptTask_1"/>

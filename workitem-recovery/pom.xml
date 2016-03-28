@@ -9,12 +9,13 @@
     <version>6.3.0.Final</version>
   </parent>
 
-  <artifactId>dynamic-boundary-timer</artifactId>
+  <artifactId>workitem-recovery</artifactId>
 
-  <name>More examples :: Exception handling</name>
-  <description>Examples showing how to do exception handling </description>
+  <name>More examples :: WorkItem Recovery</name>
+  <description>Examples showing how to recover incomplete workitems</description>
 
   <dependencies>
+    <!-- KIE -->
     <dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-api</artifactId>
@@ -23,16 +24,31 @@
       <groupId>org.kie</groupId>
       <artifactId>kie-internal</artifactId>
     </dependency>
+
+    <!--  drools -->    
     <dependency>
       <groupId>org.drools</groupId>
       <artifactId>drools-core</artifactId>
     </dependency>
+    
+    <!-- jBPM -->
     <dependency>
       <groupId>org.jbpm</groupId>
-      <artifactId>jbpm-flow</artifactId>
+      <artifactId>jbpm-bpmn2</artifactId>
     </dependency>
-
-    <!-- logging -->
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-audit</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-persistence-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-human-task-core</artifactId>
+    </dependency>
+    
     <dependency>
       <groupId>org.slf4j</groupId>
       <artifactId>slf4j-api</artifactId>
@@ -73,11 +89,34 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.0.2</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-jboss</id>
+            <phase>generate-test-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.jbpm</groupId>
+                  <artifactId>jbpm-test</artifactId>
+                  <overWrite>false</overWrite>
+                  <outputDirectory>${project.build.directory}/test-classes/</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+              <includes>**/persistence.xml</includes>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
